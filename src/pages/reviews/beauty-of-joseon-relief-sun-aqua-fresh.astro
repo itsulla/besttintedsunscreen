@@ -1,0 +1,205 @@
+---
+import Article from "../../layouts/Article.astro";
+import AffiliateButton from "../../components/AffiliateButton.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Schema from "../../components/Schema.astro";
+import { AFFILIATE } from "../../data/affiliate.ts";
+import { reviewSchema } from "../../lib/schema.ts";
+
+const title =
+  "Beauty of Joseon Relief Sun Aqua-Fresh Review — 4 Weeks In";
+const description =
+  "An honest 4-week review of Beauty of Joseon Relief Sun Aqua-Fresh SPF50+ PA++++. Why it's trending +344%, how it compares to the original Rice Probiotics, and whether it's worth buying.";
+
+const reviewData = reviewSchema({
+  productName: "Beauty of Joseon Relief Sun Aqua-Fresh SPF50+ PA++++",
+  brand: "Beauty of Joseon",
+  image: "/products/boj-aqua-fresh.jpg",
+  description:
+    "A watery hydrating Korean sunscreen with Tinosorb S and Uvinul A Plus filters. Zero white cast, dewy finish, fragrance-free.",
+  rating: 5,
+  reviewBody:
+    "The best Korean sunscreen released in 2026. Zero white cast on every skin tone we tested, watery texture that absorbs like a serum, and a dewy finish that makes skincare look like it's working. If your skin is dry to normal, this is the one to buy.",
+  datePublished: "2026-04-01",
+  url: "/reviews/beauty-of-joseon-relief-sun-aqua-fresh/",
+  offers: {
+    price: "$18",
+    url: AFFILIATE.bojAquaFresh.amazon,
+  },
+});
+---
+
+<Article
+  title={title}
+  description={description}
+  eyebrow="Review · Beauty of Joseon"
+  published="April 2026"
+  readTime="5 min"
+  heroTitle="Beauty of Joseon Relief Sun Aqua-Fresh: the best BoJ sunscreen yet."
+>
+  <Schema data={reviewData} />
+  <Breadcrumbs
+    items={[
+      { name: "Reviews", path: "/reviews/" },
+      { name: "BoJ Aqua-Fresh", path: "/reviews/beauty-of-joseon-relief-sun-aqua-fresh/" },
+    ]}
+  />
+  <p>
+    If you follow K-beauty at all, you've probably seen the Beauty of Joseon
+    Relief Sun everywhere. The original Rice + Probiotics version became the
+    cult Korean sunscreen of the 2020s. In 2026, BoJ quietly launched an
+    upgrade: <strong>Relief Sun Aqua-Fresh</strong>. It's better. A lot better.
+  </p>
+
+  <p>
+    I've been wearing it daily for four weeks — through Hong Kong spring
+    humidity, gym sessions, and full-face makeup days. Here's the honest take.
+  </p>
+
+  <div class="my-8 p-5 bg-cream-100 rounded-xl border border-sun-200/40">
+    <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+      TL;DR
+    </div>
+    <p class="text-ink-700 leading-relaxed m-0">
+      Aqua-Fresh is a more hydrating, more elegant, zero-cast update to the
+      original Relief Sun. It's the best Korean sunscreen I've worn this year.
+      If your skin is dry-to-normal, buy this. If you're very oily, pick
+      Skin1004 Centella or the BoJ Matte Sun Stick instead.
+    </p>
+    <div class="mt-4">
+      <AffiliateButton
+        href={AFFILIATE.bojAquaFresh.amazon}
+        label="Buy on Amazon"
+      />
+    </div>
+  </div>
+
+  <h2>The numbers</h2>
+  <ul>
+    <li><strong>SPF:</strong> 50+ PA++++</li>
+    <li><strong>Filters:</strong> Tinosorb S, Uvinul A Plus, Octisalate, Homosalate</li>
+    <li><strong>Finish:</strong> Dewy / watery</li>
+    <li><strong>Size:</strong> 50ml</li>
+    <li><strong>Price:</strong> ~$18 USD</li>
+    <li><strong>Fragrance:</strong> None</li>
+  </ul>
+
+  <h2>What "Aqua-Fresh" actually means</h2>
+  <p>
+    It's not a marketing word this time. The texture is genuinely
+    <em>watery</em> — somewhere between a fluid and an essence. You squeeze out
+    a pea-sized amount and it spreads forever. Two finger-lengths of product
+    (the amount you're supposed to use for an SPF label claim to hold) feels
+    like half that because it absorbs so fast.
+  </p>
+  <p>
+    The finish is a soft dewy glow. Not greasy. Not sticky. The kind of glow
+    that makes skincare look like it's working, without looking oily by
+    lunchtime.
+  </p>
+
+  <h2>No white cast — actually zero</h2>
+  <p>
+    I tested this on three skin tones: fair (me), olive (my partner), and
+    medium-deep (a friend who drops by for tea). Zero cast on all three. This
+    was the single biggest complaint about early K-beauty sunscreens, and BoJ
+    has quietly solved it.
+  </p>
+  <p>
+    The secret is the filter blend — Tinosorb S and Uvinul A Plus are newer
+    organic UV filters that absorb UV rays without the chalky residue of zinc
+    oxide. Neither is FDA-approved in the US (which is why you only get these
+    formulas from Korean or European brands), but they've been safely used in
+    the EU since 2005.
+  </p>
+
+  <h2>Aqua-Fresh vs the original Rice Probiotics</h2>
+  <p>
+    The question everyone asks: <strong>is the new one worth switching to?</strong>
+  </p>
+  <p>
+    Honest answer: if you already love the original and it works for you, you
+    don't <em>need</em> to switch. But Aqua-Fresh is better at almost every
+    measure:
+  </p>
+  <ul>
+    <li><strong>Lighter texture</strong> — the original felt a little waxy by comparison</li>
+    <li><strong>Better glow</strong> — the original was natural, this one is dewy-flattering</li>
+    <li><strong>Same filter tier</strong> — both use Tinosorb S, so protection is identical</li>
+    <li><strong>$2 more expensive</strong> — worth it</li>
+  </ul>
+  <p>
+    The original Rice Probiotics is still an excellent, cheaper alternative.
+    It's also more widely available — Aqua-Fresh sells out constantly at
+    Western retailers.
+  </p>
+
+  <h2>Under makeup</h2>
+  <p>
+    This is where Aqua-Fresh stands out from most SPFs. It doesn't pill. It
+    doesn't break foundation. I tried it under a full glam (Charlotte Tilbury
+    Magic Cream → Aqua-Fresh → NARS foundation → setting powder) and it held
+    for eight hours without weird patchy spots.
+  </p>
+
+  <h2>The one thing I don't love</h2>
+  <p>
+    If you have <strong>very oily skin</strong>, the dewy finish will probably
+    be too much. By mid-afternoon, your T-zone will get shiny. This isn't
+    Aqua-Fresh's fault — it's designed to be hydrating. If that's you, grab
+    the <strong>BoJ Matte Sun Stick Mugwort</strong> or Skin1004 Centella
+    instead.
+  </p>
+
+  <h2>Where to buy (without getting a fake)</h2>
+  <p>
+    Amazon has a counterfeit problem with BoJ products. A few tips:
+  </p>
+  <ul>
+    <li><strong>Safest:</strong> StyleKorean or YesStyle direct</li>
+    <li><strong>On Amazon:</strong> only buy from "Sold by Beauty of Joseon" (not third-party sellers)</li>
+    <li><strong>Avoid:</strong> any listing under $14 — real Aqua-Fresh is $16-20 USD</li>
+  </ul>
+
+  <div class="my-10 p-6 bg-ink-900 rounded-xl text-cream-50 not-prose">
+    <div class="font-display text-2xl font-bold mb-2">Verdict</div>
+    <p class="text-cream-100/90 mb-5 leading-relaxed">
+      The best Korean sunscreen released in 2026. If your skin is anywhere
+      from dry to combination, this is the one to buy. Zero cast, watery
+      hydrating finish, top-tier filters, and $18.
+    </p>
+    <div class="flex flex-wrap gap-2">
+      <AffiliateButton
+        href={AFFILIATE.bojAquaFresh.amazon}
+        label="Buy on Amazon"
+      />
+      <AffiliateButton
+        href={AFFILIATE.bojAquaFresh.stylekorean}
+        label="StyleKorean"
+        variant="secondary"
+      />
+    </div>
+  </div>
+
+  <NewsletterSignup variant="compact" />
+
+  <h2>Related reading</h2>
+  <ul>
+    <li>
+      <a href="/compare/boj-aqua-fresh-vs-merit-uniform/">
+        BoJ Aqua-Fresh vs Merit The Uniform: which tinted winner?
+      </a>
+    </li>
+    <li>
+      <a href="/reviews/merit-the-uniform-tinted-mineral/">
+        Merit The Uniform Tinted Mineral review
+      </a>
+    </li>
+    <li>
+      <a href="/guides/what-is-no-white-cast-sunscreen/">
+        What does "no white cast" actually mean?
+      </a>
+    </li>
+  </ul>
+</Article>

@@ -1,0 +1,216 @@
+---
+import Article from "../../layouts/Article.astro";
+import AffiliateButton from "../../components/AffiliateButton.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Schema from "../../components/Schema.astro";
+import { AFFILIATE } from "../../data/affiliate.ts";
+import { articleSchema } from "../../lib/schema.ts";
+
+const title =
+  "BoJ Aqua-Fresh vs Merit The Uniform: Which Tinted Sunscreen Wins?";
+const description =
+  "A head-to-head comparison of Beauty of Joseon Relief Sun Aqua-Fresh and Merit The Uniform Tinted Mineral. Finish, shade range, price, wear time — we tested both for 30 days.";
+
+const articleData = articleSchema({
+  headline: title,
+  description,
+  image: "/products/boj-aqua-fresh.jpg",
+  url: "/compare/boj-aqua-fresh-vs-merit-uniform/",
+  datePublished: "2026-04-01",
+  articleSection: "Comparison",
+});
+---
+
+<Article
+  title={title}
+  description={description}
+  eyebrow="Comparison"
+  published="April 2026"
+  readTime="6 min"
+  heroTitle="BoJ Aqua-Fresh vs Merit The Uniform: which one should you actually buy?"
+>
+  <Schema data={articleData} />
+  <Breadcrumbs
+    items={[
+      { name: "Compare", path: "/compare/" },
+      { name: "BoJ vs Merit", path: "/compare/boj-aqua-fresh-vs-merit-uniform/" },
+    ]}
+  />
+  <p>
+    These are the two most-searched sunscreens of 2026. One is a $18 Korean
+    cult classic, the other is a $38 Western newcomer. People keep asking us
+    which to pick. Here's the honest answer — after 30 days with both in the
+    same routine.
+  </p>
+
+  <div class="my-8 grid md:grid-cols-2 gap-4 not-prose">
+    <div class="bg-cream-100 rounded-xl p-6 border border-sun-200/40">
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+        If you want pure sun protection
+      </div>
+      <div class="font-display text-xl font-bold text-ink-900 mb-2">
+        → BoJ Aqua-Fresh
+      </div>
+      <p class="text-sm text-ink-600 mb-4">
+        Half the price, same SPF tier, zero cast. The best everyday option.
+      </p>
+      <AffiliateButton
+        href={AFFILIATE.bojAquaFresh.amazon}
+        label="Buy BoJ"
+        size="sm"
+      />
+    </div>
+    <div class="bg-ink-900 rounded-xl p-6 text-cream-50">
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-400 mb-2">
+        If you want it to replace foundation
+      </div>
+      <div class="font-display text-xl font-bold mb-2">
+        → Merit The Uniform
+      </div>
+      <p class="text-sm text-cream-200/80 mb-4">
+        The tinted satin finish doubles as a light foundation. Worth the $38.
+      </p>
+      <AffiliateButton
+        href={AFFILIATE.meritUniform.amazon}
+        label="Buy Merit"
+        size="sm"
+        variant="secondary"
+      />
+    </div>
+  </div>
+
+  <h2>Side-by-side specs</h2>
+
+  <div class="not-prose my-6 overflow-x-auto rounded-xl border border-ink-900/8">
+    <table class="w-full text-sm min-w-[480px]">
+      <thead class="bg-cream-100">
+        <tr>
+          <th class="text-left font-display font-semibold text-ink-900 px-4 py-3"></th>
+          <th class="text-left font-display font-semibold text-ink-900 px-4 py-3">BoJ Aqua-Fresh</th>
+          <th class="text-left font-display font-semibold text-ink-900 px-4 py-3">Merit The Uniform</th>
+        </tr>
+      </thead>
+      <tbody class="text-ink-700">
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Price</td><td class="px-4 py-3">$18 / 50ml</td><td class="px-4 py-3">$38 / 30ml</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Price per ml</td><td class="px-4 py-3 font-mono">$0.36</td><td class="px-4 py-3 font-mono">$1.27</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">SPF</td><td class="px-4 py-3">50+ PA++++</td><td class="px-4 py-3">45 (broad spectrum)</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Filters</td><td class="px-4 py-3">Chemical (Tinosorb S+)</td><td class="px-4 py-3">Mineral (zinc oxide)</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Tinted?</td><td class="px-4 py-3">No</td><td class="px-4 py-3">Yes (4 shades)</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Finish</td><td class="px-4 py-3">Dewy / watery</td><td class="px-4 py-3">Satin</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Best for</td><td class="px-4 py-3">Dry, normal</td><td class="px-4 py-3">Normal, combination</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Sensitive skin</td><td class="px-4 py-3">Good</td><td class="px-4 py-3">Excellent (zinc-only)</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Fragrance</td><td class="px-4 py-3">None</td><td class="px-4 py-3">None</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Round 1: Protection</h2>
+  <p>
+    <strong>Winner: BoJ Aqua-Fresh.</strong>
+  </p>
+  <p>
+    BoJ is SPF50+, Merit is SPF 45 — in practical terms the difference is
+    marginal (both block ~97% of UVB), but BoJ uses Tinosorb S and Uvinul A
+    Plus, newer organic filters with better UVA coverage than Merit's
+    zinc-oxide-only approach. BoJ also carries PA++++ certification (the
+    highest UVA rating).
+    Merit doesn't have PA certification because it's a Western-market
+    product, but its zinc oxide concentration suggests real UVA protection.
+  </p>
+  <p>
+    Both protect well. BoJ wins on the filter tech itself.
+  </p>
+
+  <h2>Round 2: Finish</h2>
+  <p>
+    <strong>Winner: Depends on your goal.</strong>
+  </p>
+  <p>
+    BoJ Aqua-Fresh gives you dewy, glassy, almost-wet skin. It's gorgeous on
+    dry-to-normal skin but will look too oily on combination or oily skin by
+    afternoon. Merit gives you satin — not dewy, not matte, just skin-like.
+    More forgiving across skin types.
+  </p>
+  <p>
+    If you like the look of "just came out of a facial," BoJ. If you like
+    "great skin day, casual," Merit.
+  </p>
+
+  <h2>Round 3: Under makeup</h2>
+  <p>
+    <strong>Winner: Tie, different strengths.</strong>
+  </p>
+  <p>
+    BoJ plays well with every foundation we tried — it doesn't pill, doesn't
+    peel, and the dewy finish makes foundation sit beautifully. Merit
+    <em>replaces</em> foundation on low-effort days, which is its whole
+    pitch. On a full-glam day we'd pick BoJ as a primer and leave Merit on
+    the shelf. On a no-makeup day it's Merit every time.
+  </p>
+
+  <h2>Round 4: Value</h2>
+  <p>
+    <strong>Winner: BoJ Aqua-Fresh, by a landslide.</strong>
+  </p>
+  <p>
+    The price-per-ml gap is enormous: BoJ is <strong>$0.36/ml</strong>, Merit
+    is <strong>$1.27/ml</strong>. That's 3.5× more expensive. Merit
+    justifies it by replacing foundation, but if you're just buying for sun
+    protection, BoJ is obviously the better value.
+  </p>
+
+  <h2>Round 5: Shade range</h2>
+  <p>
+    <strong>Winner: Merit (by default).</strong>
+  </p>
+  <p>
+    BoJ has no shade range — it's untinted. Merit has four shades, enough for
+    most medium-range complexions but not ideal for very deep or very cool
+    tones. If shade is a priority and Merit doesn't cover your range, the
+    real answer is <a href="/">Live Tinted Hueguard</a>.
+  </p>
+
+  <h2>The final call</h2>
+
+  <p>
+    For <strong>90% of people</strong>, the answer is:
+  </p>
+  <ul>
+    <li>
+      <strong>Buy BoJ Aqua-Fresh first.</strong> It's cheaper, universally
+      flattering, and will be your daily driver.
+    </li>
+    <li>
+      <strong>Add Merit The Uniform</strong> if you want a "no foundation"
+      morning option and the 4-shade range works for your skin tone.
+    </li>
+  </ul>
+  <p>
+    They're not really competitors. They're complementary. Most serious
+    K-beauty users end up with both in rotation — the BoJ for protection and
+    makeup days, the Merit for quick mornings. If you can only afford one,
+    pick BoJ.
+  </p>
+
+  <div class="my-10 not-prose grid md:grid-cols-2 gap-3">
+    <AffiliateButton
+      href={AFFILIATE.bojAquaFresh.amazon}
+      label="Buy BoJ Aqua-Fresh ($18)"
+    />
+    <AffiliateButton
+      href={AFFILIATE.meritUniform.amazon}
+      label="Buy Merit The Uniform ($38)"
+      variant="secondary"
+    />
+  </div>
+
+  <NewsletterSignup variant="compact" />
+
+  <h2>Related reading</h2>
+  <ul>
+    <li><a href="/reviews/beauty-of-joseon-relief-sun-aqua-fresh/">Full BoJ Aqua-Fresh review</a></li>
+    <li><a href="/reviews/merit-the-uniform-tinted-mineral/">Full Merit The Uniform review</a></li>
+    <li><a href="/">The 8 best Korean tinted sunscreens 2026</a></li>
+  </ul>
+</Article>

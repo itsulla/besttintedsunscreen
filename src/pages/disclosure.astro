@@ -1,0 +1,161 @@
+---
+import Base from "../layouts/Base.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Schema from "../components/Schema.astro";
+import { SITE } from "../data/seo.ts";
+
+const title = "Affiliate Disclosure";
+const description =
+  "How Best Tinted Sunscreen makes money, how we disclose affiliate relationships, and what that means for the independence of our reviews.";
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  description,
+  url: `${SITE.url}/disclosure/`,
+  publisher: { "@id": `${SITE.url}#organization` },
+  dateModified: "2026-04-11",
+};
+---
+
+<Base title={title} description={description}>
+  <Schema data={pageSchema} />
+  <Breadcrumbs items={[{ name: "Affiliate Disclosure", path: "/disclosure/" }]} />
+
+  <article class="max-w-readable mx-auto px-5 md:px-8 py-10">
+    <header class="mb-12">
+      <div class="flex items-center gap-2 mb-5">
+        <span class="w-6 h-px bg-sun-600"></span>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-sun-700">
+          Legal
+        </span>
+      </div>
+      <h1 class="font-display font-bold text-ink-900 text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-tightest">
+        Affiliate disclosure.
+      </h1>
+      <p class="mt-6 text-lg text-ink-600 leading-relaxed">
+        Short version: some of our links earn us commission. Long version below.
+      </p>
+    </header>
+
+    <section class="prose-editorial">
+      <h2>The short version</h2>
+      <p>
+        Best Tinted Sunscreen is an independent editorial project funded entirely
+        by affiliate commissions. When you click a "Buy on Amazon" or
+        "Buy on StyleKorean" button and purchase something, we earn a small
+        commission (typically 1–10% of the sale). You pay the same price you'd
+        pay if you went directly to the retailer.
+      </p>
+
+      <h2>Which programs we participate in</h2>
+      <ul>
+        <li>
+          <strong>Amazon Associates Program</strong> (US). We are a participant
+          in the Amazon Services LLC Associates Program, an affiliate
+          advertising program designed to provide a means for sites to earn
+          advertising fees by advertising and linking to Amazon.com. "Amazon,"
+          "Amazon.com," and the Amazon logo are trademarks of Amazon.com, Inc.
+          or its affiliates.
+        </li>
+        <li>
+          <strong>StyleKorean</strong> and <strong>YesStyle</strong>: we may
+          earn commission on purchases made through their affiliate programs.
+        </li>
+        <li>
+          <strong>Other retailer programs</strong>: when we add new retailers,
+          this list will be updated.
+        </li>
+      </ul>
+
+      <h2>How this affects what we recommend</h2>
+      <p>
+        Our product rankings are based on quality — UV filter chemistry,
+        real-world wear, shade range, ingredient safety, and community
+        consensus — not commission rate. Several products in our rankings earn
+        us less commission than others, and we link them anyway because they
+        deserve the spot.
+      </p>
+      <p>
+        We do <strong>not</strong>:
+      </p>
+      <ul>
+        <li>Accept payment in exchange for positive reviews</li>
+        <li>Accept payment for link placements</li>
+        <li>Publish sponsored content disguised as editorial</li>
+        <li>Take free product samples in exchange for coverage</li>
+      </ul>
+      <p>
+        If a brand sends us a press sample and we write about it, that
+        relationship is disclosed in the article itself.
+      </p>
+
+      <h2>Where affiliate links appear</h2>
+      <p>
+        You'll find affiliate links throughout this site:
+      </p>
+      <ul>
+        <li>On the main ranking page (every product card's "Buy" button)</li>
+        <li>In individual product reviews (inline links and "Verdict" CTAs)</li>
+        <li>In comparison articles (both products linked)</li>
+        <li>In regional buying guides</li>
+        <li>In newsletter emails sent to subscribers</li>
+      </ul>
+      <p>
+        Every external retailer link on this site uses <code>rel="nofollow sponsored"</code>
+        as required by Google's webmaster guidelines. You'll also see the
+        <strong>"Some links are affiliate links…"</strong> notice in the
+        footer of every page as required by the US FTC's Endorsement Guides.
+      </p>
+
+      <h2>FTC compliance</h2>
+      <p>
+        This site follows the U.S. Federal Trade Commission's
+        <a href="https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking" rel="noopener">
+          Endorsement Guides
+        </a>
+        and the guidance set out in
+        <em>16 CFR Part 255</em>. Material connections with brands and
+        retailers are disclosed "clearly and conspicuously" at the top of
+        any article that contains affiliate links, and in the footer of
+        every page.
+      </p>
+
+      <h2>What you can trust from us</h2>
+      <p>
+        We're a small independent site. What you can trust:
+      </p>
+      <ul>
+        <li>
+          Rankings are based on research and, where noted, hands-on testing —
+          not on how much a retailer pays us.
+        </li>
+        <li>
+          We mark which reviews are from personal testing versus synthesized
+          community research, so you can weigh each recommendation accordingly.
+        </li>
+        <li>
+          If we get something factually wrong, we fix it. Email us and we'll
+          correct the article (and credit you if you like).
+        </li>
+      </ul>
+
+      <h2>Questions or concerns</h2>
+      <p>
+        If you think a specific review feels biased, or you want to dispute a
+        ranking, email us at <a href="mailto:hello@lekker.design">hello@lekker.design</a>.
+        We take this seriously and we'd rather fix a problem than hide it.
+      </p>
+
+      <hr />
+
+      <p class="text-sm text-ink-500">
+        This disclosure was last updated on 2026-04-11. It applies to all
+        pages on <strong>besttintedsunscreen.com</strong>, all our newsletter
+        emails, and any other content we publish under the Best Tinted
+        Sunscreen name.
+      </p>
+    </section>
+  </article>
+</Base>

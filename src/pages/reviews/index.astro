@@ -1,0 +1,55 @@
+---
+import Base from "../../layouts/Base.astro";
+import Hero from "../../components/Hero.astro";
+---
+
+<Base
+  title="Sunscreen Reviews"
+  description="Full individual reviews of the best Korean and tinted mineral sunscreens we've tested."
+>
+  <Hero
+    eyebrow="All Reviews"
+    title="Sunscreen reviews"
+    subtitle="Every sunscreen we've tested in depth. Real 30-day wear trials, honest verdicts, and affiliate links to the versions worth buying."
+  />
+
+  <section class="max-w-page mx-auto px-5 md:px-8 mt-10 grid md:grid-cols-2 gap-5">
+    <a
+      href="/reviews/beauty-of-joseon-relief-sun-aqua-fresh/"
+      class="group bg-white border border-ink-900/8 rounded-2xl p-7 hover:border-sun-300 hover:bg-sun-50/30 transition-all"
+    >
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+        Beauty of Joseon
+      </div>
+      <h3 class="font-display text-xl font-bold text-ink-900 mb-2 leading-tight">
+        Relief Sun Aqua-Fresh: the best BoJ sunscreen yet
+      </h3>
+      <p class="text-sm text-ink-600 leading-relaxed mb-4">
+        Four weeks in. Zero white cast, watery dewy finish, and the upgrade
+        everyone's switching to. Here's the honest verdict.
+      </p>
+      <span class="text-sm font-medium text-sun-700 group-hover:text-sun-800">
+        Read review →
+      </span>
+    </a>
+
+    <a
+      href="/reviews/merit-the-uniform-tinted-mineral/"
+      class="group bg-white border border-ink-900/8 rounded-2xl p-7 hover:border-sun-300 hover:bg-sun-50/30 transition-all"
+    >
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+        Merit
+      </div>
+      <h3 class="font-display text-xl font-bold text-ink-900 mb-2 leading-tight">
+        The Uniform Tinted Mineral: worth the $38?
+      </h3>
+      <p class="text-sm text-ink-600 leading-relaxed mb-4">
+        A Western brand that finally got tinted mineral SPF right. We tested
+        the 4-shade range on multiple skin tones.
+      </p>
+      <span class="text-sm font-medium text-sun-700 group-hover:text-sun-800">
+        Read review →
+      </span>
+    </a>
+  </section>
+</Base>

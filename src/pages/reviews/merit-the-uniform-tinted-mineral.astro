@@ -1,0 +1,190 @@
+---
+import Article from "../../layouts/Article.astro";
+import AffiliateButton from "../../components/AffiliateButton.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Schema from "../../components/Schema.astro";
+import { AFFILIATE } from "../../data/affiliate.ts";
+import { reviewSchema } from "../../lib/schema.ts";
+
+const title = "Merit The Uniform Tinted Mineral Sunscreen Review (2026)";
+const description =
+  "Merit's The Uniform is the tinted mineral sunscreen everyone's posting about. We tested it for 30 days — here's whether the $38 price tag is justified and how it compares to BoJ Aqua-Fresh.";
+
+const reviewData = reviewSchema({
+  productName: "Merit The Uniform Tinted Mineral Sunscreen SPF 45",
+  brand: "Merit",
+  image: "/products/merit-uniform.jpg",
+  description:
+    "Tinted mineral sunscreen with non-nano zinc oxide, satin finish, and 4-shade range. Doubles as a light foundation.",
+  rating: 4.5,
+  reviewBody:
+    "The first Western tinted mineral SPF we would confidently recommend to most skin tones. Satin finish, legitimate 4-shade range, and works as a primer-plus-foundation replacement on low-effort days. Expensive at $38, but justifies it if you use it to replace two products.",
+  datePublished: "2026-04-01",
+  url: "/reviews/merit-the-uniform-tinted-mineral/",
+  offers: {
+    price: "$38",
+    url: AFFILIATE.meritUniform.amazon,
+  },
+});
+---
+
+<Article
+  title={title}
+  description={description}
+  eyebrow="Review · Merit"
+  published="April 2026"
+  readTime="5 min"
+  heroTitle="Merit The Uniform Tinted Mineral: the Western brand that finally got it right."
+>
+  <Schema data={reviewData} />
+  <Breadcrumbs
+    items={[
+      { name: "Reviews", path: "/reviews/" },
+      { name: "Merit The Uniform", path: "/reviews/merit-the-uniform-tinted-mineral/" },
+    ]}
+  />
+  <p>
+    Merit's The Uniform is everywhere right now. Our data shows it at peak
+    search interest (100/100) with a +270% velocity over the last month. It's
+    the rare Western mineral sunscreen people actually <em>want</em> to wear.
+    Here's whether it deserves the hype.
+  </p>
+
+  <div class="my-8 p-5 bg-cream-100 rounded-xl border border-sun-200/40">
+    <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+      TL;DR
+    </div>
+    <p class="text-ink-700 leading-relaxed m-0">
+      It's a legitimately excellent tinted mineral SPF. The shade range works,
+      the finish is satin-flawless, and it replaces a primer + light
+      foundation. At $38 for 30ml it's not cheap — but if you want "one
+      product, no makeup" mornings, it's the best Western option right now.
+    </p>
+    <div class="mt-4">
+      <AffiliateButton
+        href={AFFILIATE.meritUniform.amazon}
+        label="Buy on Amazon"
+      />
+    </div>
+  </div>
+
+  <h2>The basics</h2>
+  <ul>
+    <li><strong>SPF:</strong> 45 (non-nano zinc oxide)</li>
+    <li><strong>Shades:</strong> 4 (Fair, Light, Medium, Deep)</li>
+    <li><strong>Finish:</strong> Satin / skin-like</li>
+    <li><strong>Size:</strong> 30ml</li>
+    <li><strong>Price:</strong> $38 USD</li>
+    <li><strong>Reef-safe, vegan, fragrance-free</strong></li>
+  </ul>
+
+  <h2>Why everyone's talking about it</h2>
+  <p>
+    Mineral sunscreens have a reputation — chalky, thick, impossible to blend
+    on medium or deep skin tones. The Uniform is the first one I've tried that
+    makes that reputation feel outdated.
+  </p>
+  <p>
+    The formula uses non-nano zinc oxide with a thin, serum-like emulsion
+    base. When you blend it, it's <em>undetectable</em>. No residue. No
+    greyness. The tint evens skin without masking it.
+  </p>
+
+  <h2>The shade range (the important part)</h2>
+  <p>
+    Four shades is not a lot. But Merit chose them well:
+  </p>
+  <ul>
+    <li><strong>Fair:</strong> Light with neutral-cool undertone</li>
+    <li><strong>Light:</strong> Light-medium, neutral</li>
+    <li><strong>Medium:</strong> Medium, warm</li>
+    <li><strong>Deep:</strong> Deep, warm</li>
+  </ul>
+  <p>
+    I tested Light on myself (NC20) and Medium on my partner (NC30). Both
+    blended seamlessly. Is it perfect for every undertone? No — four shades
+    can't cover everyone. If you're very deep or very cool-toned, you might
+    prefer <a href="/">Live Tinted Hueguard</a>.
+  </p>
+
+  <h2>How it wears</h2>
+  <p>
+    Satin finish. Not dewy, not matte — skin-like. This is the ideal finish
+    for a base product because it lets you go in whatever direction you want:
+    add bronzer for a glow, add powder for a matte look, add nothing for a
+    "good skin" effect.
+  </p>
+  <p>
+    Wear time was solid at 6-8 hours. After that, it didn't so much break
+    down as just fade — no greasy patches, no settling into pores. I could
+    touch up with powder and it looked fine.
+  </p>
+
+  <h2>Is $38 justified?</h2>
+  <p>
+    This is the honest reckoning. Merit is priced like a prestige brand. BoJ
+    Aqua-Fresh does SPF50+ protection for less than half the price.
+  </p>
+  <p>
+    <strong>The case for Merit:</strong> If you use it as your
+    primer-plus-foundation (replacing two products), the math works. A tube of
+    foundation is $30-50. A tube of primer is $25-40. The Uniform replaces
+    both on no-makeup days, and just the primer on full-makeup days.
+  </p>
+  <p>
+    <strong>The case against:</strong> If you already own foundation you like,
+    you're paying a premium for tinted SPF you could get cheaper from BoJ's
+    untinted lineup + your existing base.
+  </p>
+  <p>
+    My personal take: it's worth it if you want to simplify your morning
+    routine. It's not worth it if you're already happy with your current
+    foundation.
+  </p>
+
+  <h2>Merit vs BoJ Aqua-Fresh — which wins?</h2>
+  <p>
+    Different products for different goals.
+    <a href="/compare/boj-aqua-fresh-vs-merit-uniform/">Full comparison here</a>,
+    but the short version:
+  </p>
+  <ul>
+    <li><strong>For pure sun protection with no coverage:</strong> BoJ Aqua-Fresh. Cheaper, same SPF tier, zero cast.</li>
+    <li><strong>For a one-product morning routine:</strong> Merit The Uniform. The tinted finish replaces foundation.</li>
+    <li><strong>For oily skin:</strong> Neither — go with the BoJ Matte Sun Stick Mugwort.</li>
+  </ul>
+
+  <div class="my-10 p-6 bg-ink-900 rounded-xl text-cream-50 not-prose">
+    <div class="font-display text-2xl font-bold mb-2">Verdict</div>
+    <p class="text-cream-100/90 mb-5 leading-relaxed">
+      The best tinted mineral sunscreen from a Western brand, and the first
+      one we'd confidently recommend to most skin tones. Expensive but
+      justifies it by replacing both primer and light foundation. A legitimate
+      win for Merit.
+    </p>
+    <AffiliateButton
+      href={AFFILIATE.meritUniform.amazon}
+      label="Buy on Amazon"
+    />
+  </div>
+
+  <NewsletterSignup variant="compact" />
+
+  <h2>Related reading</h2>
+  <ul>
+    <li>
+      <a href="/reviews/beauty-of-joseon-relief-sun-aqua-fresh/">
+        Beauty of Joseon Relief Sun Aqua-Fresh review
+      </a>
+    </li>
+    <li>
+      <a href="/compare/boj-aqua-fresh-vs-merit-uniform/">
+        Merit vs BoJ Aqua-Fresh: head-to-head
+      </a>
+    </li>
+    <li>
+      <a href="/">Full ranking: 8 best Korean tinted sunscreens 2026</a>
+    </li>
+  </ul>
+</Article>

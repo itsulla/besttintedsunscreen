@@ -1,0 +1,304 @@
+---
+import Article from "../../layouts/Article.astro";
+import AffiliateButton from "../../components/AffiliateButton.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Schema from "../../components/Schema.astro";
+import { AFFILIATE } from "../../data/affiliate.ts";
+import { articleSchema } from "../../lib/schema.ts";
+
+const title =
+  "What Is PDRN? The K-Beauty Ingredient Everyone's Searching For";
+const description =
+  "PDRN is the fastest-rising skincare ingredient in 2026. We explain what polydeoxyribonucleotide actually is, what the science says about topical PDRN serums, and which Korean products are worth buying.";
+
+const articleData = articleSchema({
+  headline: title,
+  description,
+  image: "/products/boj-aqua-fresh.jpg",
+  url: "/guides/what-is-pdrn-skincare/",
+  datePublished: "2026-04-13",
+  articleSection: "Ingredient Guides",
+});
+---
+
+<Article
+  title={title}
+  description={description}
+  eyebrow="Guide · Ingredients"
+  published="April 2026"
+  readTime="6 min"
+  heroTitle="PDRN: salmon DNA fragments are the hottest ingredient in Korean skincare. Here's what you need to know."
+>
+  <Schema data={articleData} />
+  <Breadcrumbs
+    items={[
+      { name: "Guides", path: "/guides/" },
+      { name: "What Is PDRN?", path: "/guides/what-is-pdrn-skincare/" },
+    ]}
+  />
+  <p>
+    If you've scrolled TikTok, browsed Olive Young, or looked at any Korean
+    skincare shelf in the last six months, you've seen <strong>PDRN</strong>
+    everywhere. Medicube's PDRN Pink line is selling out. COSRX launched a PDRN
+    collagen serum. Even Beauty of Joseon and Innisfree are getting in on it.
+  </p>
+  <p>
+    PDRN search interest has grown over 90% year-over-year, making it the
+    single fastest-rising skincare ingredient of 2026. But most of the content
+    about it is either marketing copy or so technical it might as well be a
+    biology textbook.
+  </p>
+  <p>
+    Here's the version that's actually useful.
+  </p>
+
+  <div class="my-8 p-5 bg-cream-100 rounded-xl border border-sun-200/40">
+    <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+      TL;DR
+    </div>
+    <p class="text-ink-700 leading-relaxed m-0">
+      PDRN (polydeoxyribonucleotide) is short DNA fragments from salmon sperm,
+      purified to be biocompatible with human skin. It signals your cells to
+      produce more collagen and reduce inflammation. The injectable version has
+      strong clinical evidence. Topical PDRN is promising for hydration and
+      barrier repair, but the anti-aging data isn't as robust yet. If you're
+      already into K-beauty, it's worth trying — just don't expect retinol-level
+      results from a serum alone.
+    </p>
+  </div>
+
+  <h2>What PDRN actually is</h2>
+  <p>
+    PDRN stands for <strong>polydeoxyribonucleotide</strong> — short fragments
+    of DNA, typically ranging from 50 to 1,500 kilodaltons in molecular weight.
+    The DNA is extracted from salmon sperm (specifically <em>Oncorhynchus
+    keta</em>, chum salmon) and then purified to remove all proteins. What's
+    left is a biocompatible chain of nucleotides that's structurally similar to
+    human DNA.
+  </p>
+  <p>
+    "Salmon DNA skincare" sounds like a marketing gimmick. It isn't. PDRN has
+    been used in medical settings since the early 2000s — as an injectable
+    treatment for wound healing, tissue regeneration, and post-procedure
+    recovery. Korean dermatology clinics have offered PDRN injections (sometimes
+    called "salmon injections") for over a decade. The move to topical skincare
+    products started around 2024, and by 2026 it's the dominant ingredient
+    trend in K-beauty.
+  </p>
+
+  <h2>How it works</h2>
+  <p>
+    PDRN's primary mechanism is through the <strong>A2A adenosine receptor
+    pathway</strong>. When PDRN fragments interact with A2A purinergic
+    receptors on your skin cells, they trigger a cascade that:
+  </p>
+  <ul>
+    <li>
+      <strong>Stimulates fibroblasts</strong> — the cells responsible for
+      producing collagen and elastin. Research suggests PDRN can increase
+      collagen synthesis by 25–35% over 8–12 weeks.
+    </li>
+    <li>
+      <strong>Reduces inflammation</strong> — by modulating the A2A pathway,
+      PDRN suppresses pro-inflammatory cytokines. This is why it was originally
+      used for wound healing.
+    </li>
+    <li>
+      <strong>Promotes cell turnover</strong> — PDRN provides raw nucleotide
+      building blocks that cells can use for repair and proliferation, which
+      supports faster skin renewal.
+    </li>
+  </ul>
+  <p>
+    One clinical study on skin graft patients found that PDRN-treated wounds
+    fully healed in 12.5 days compared to 24.5 days in the control group.
+    That's real, measurable tissue regeneration — not a before-and-after photo
+    with different lighting.
+  </p>
+
+  <h2>The honest take: injectable vs. topical</h2>
+  <p>
+    Here's what most PDRN marketing won't tell you: <strong>most of the
+    impressive clinical data is for injectable PDRN</strong>, not topical serums.
+  </p>
+  <p>
+    When injected directly into the dermis, PDRN bypasses the skin barrier
+    entirely and reaches fibroblasts at full concentration. The 25–35% collagen
+    increase, the wound healing acceleration, the anti-aging effects — that
+    evidence comes from needles, not bottles.
+  </p>
+  <p>
+    Topical PDRN faces a fundamental challenge: <strong>it's a large
+    molecule</strong>. DNA fragments don't penetrate the stratum corneum as
+    easily as smaller actives like retinol, niacinamide, or vitamin C. This
+    doesn't mean topical PDRN does nothing — early research shows it can
+    improve hydration and skin barrier function — but the large-scale anti-aging
+    evidence for topical application isn't on par with established actives yet.
+  </p>
+  <p>
+    Think of it this way: retinol has 50+ years of topical studies behind it.
+    PDRN has about 5 years of topical research and 20+ years of injectable data.
+    It's promising, not proven at the same level.
+  </p>
+
+  <h2>Who it's actually good for</h2>
+  <p>
+    Based on the current science, topical PDRN makes the most sense for:
+  </p>
+  <ul>
+    <li>
+      <strong>Compromised or sensitised skin</strong> — if your barrier is
+      damaged from over-exfoliation, retinol irritation, or post-procedure
+      recovery, PDRN's anti-inflammatory and regenerative properties are well
+      suited. This is closest to the original clinical use case.
+    </li>
+    <li>
+      <strong>Dehydrated skin that needs repair</strong> — the hydration and
+      barrier-strengthening benefits of topical PDRN are the best-supported
+      topical claims.
+    </li>
+    <li>
+      <strong>Redness and uneven tone</strong> — PDRN's anti-inflammatory
+      action helps with redness, post-acne marks, and hyperpigmentation
+      recovery.
+    </li>
+    <li>
+      <strong>K-beauty enthusiasts who want the next edge</strong> — if you're
+      already layering essences, serums, and SPF, a PDRN serum slots in
+      naturally and the ingredient profile is genuinely interesting.
+    </li>
+  </ul>
+
+  <h2>The best PDRN products in 2026</h2>
+  <p>
+    The PDRN market has exploded, but not every product is worth your money.
+    Here are the ones with the best formulations and real user results.
+  </p>
+
+  <div class="not-prose my-6 grid md:grid-cols-2 gap-4">
+    <div class="bg-white border border-ink-900/8 rounded-xl p-5">
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-ink-400 mb-2">
+        Most Popular
+      </div>
+      <div class="font-display font-bold text-ink-900 mb-1">
+        Medicube PDRN Pink Peptide Serum
+      </div>
+      <p class="text-sm text-ink-500 mb-2 m-0">
+        10,000 ppm PDRN + peptides + niacinamide. Won the 2024 Glow Pick Award.
+        Users report noticeably dewier, firmer skin within 1–2 weeks. The hero
+        product of the PDRN wave — available on Amazon, YesStyle, and Ulta.
+      </p>
+      <p class="text-xs text-ink-400 m-0 mb-3">~$22 for 30ml</p>
+      <AffiliateButton
+        href={AFFILIATE.medicubePDRN.amazon}
+        label="Check price on Amazon"
+        size="sm"
+      />
+    </div>
+    <div class="bg-white border border-ink-900/8 rounded-xl p-5">
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-ink-400 mb-2">
+        Best Budget
+      </div>
+      <div class="font-display font-bold text-ink-900 mb-1">
+        COSRX 5 PDRN Collagen Intense Vitalizing Serum
+      </div>
+      <p class="text-sm text-ink-500 mb-2 m-0">
+        COSRX's entry into PDRN combines the ingredient with their signature
+        peptide complex. Lightweight, layers well under sunscreen, and at a
+        lower price point than the Medicube.
+      </p>
+      <p class="text-xs text-ink-400 m-0 mb-3">~$18 for 40ml</p>
+      <AffiliateButton
+        href={AFFILIATE.cosrxPDRN.amazon}
+        label="Check price on Amazon"
+        size="sm"
+        variant="secondary"
+      />
+    </div>
+  </div>
+
+  <p>
+    Other PDRN products gaining traction: <strong>Medicube PDRN Pink Caffeine
+    Night Wrapping Mask</strong> (overnight treatment), <strong>Medicube PDRN
+    Pink Niacinamide Milky Toner</strong> (lighter layering option), and
+    <strong>Dr. Reju All PDRN Cream</strong> (barrier-focused moisturiser).
+  </p>
+
+  <h2>How to use PDRN in your routine</h2>
+  <p>
+    PDRN serums are water-based and lightweight, so they go in the same step as
+    any other serum — after cleansing and toning, before moisturiser and
+    sunscreen.
+  </p>
+  <ol>
+    <li><strong>Cleanse</strong> — double cleanse if you're wearing SPF or makeup</li>
+    <li><strong>Tone</strong> — optional (or use a PDRN toner like the Medicube Milky Toner to double up)</li>
+    <li><strong>PDRN serum</strong> — 2–3 drops, pat gently into damp skin</li>
+    <li><strong>Moisturise</strong> — seal everything in</li>
+    <li><strong>Sunscreen</strong> — always, every morning</li>
+  </ol>
+  <p>
+    PDRN pairs well with niacinamide, hyaluronic acid, and peptides. It's
+    generally safe to use alongside retinol, but if your skin is already
+    sensitised from retinol, PDRN's barrier-repair properties make it a good
+    alternative on your "off nights."
+  </p>
+
+  <h2>PDRN vs. other trending ingredients</h2>
+  <p>
+    The 2026 K-beauty ingredient landscape also includes <strong>exosomes</strong>
+    and <strong>snail mucin</strong> as top contenders. Here's how PDRN
+    compares:
+  </p>
+  <ul>
+    <li>
+      <strong>PDRN vs. exosomes</strong> — both are regenerative, but exosomes
+      are cell-derived vesicles that carry growth factors, while PDRN is pure
+      DNA fragments. Exosome products are typically more expensive and even
+      newer to topical skincare. PDRN has more clinical history.
+    </li>
+    <li>
+      <strong>PDRN vs. snail mucin</strong> — snail mucin is primarily a
+      hydrator and soother (glycoproteins, hyaluronic acid). PDRN targets a
+      different mechanism entirely (cell signalling via A2A receptors). They're
+      complementary, not competitors — you can use both.
+    </li>
+    <li>
+      <strong>PDRN vs. retinol</strong> — retinol is still the gold standard
+      for proven topical anti-aging. PDRN is gentler and works through a
+      completely different pathway. If retinol irritates your skin, PDRN is a
+      reasonable alternative. If you tolerate retinol well, PDRN adds to your
+      routine rather than replacing it.
+    </li>
+  </ul>
+
+  <h2>The bottom line</h2>
+  <p>
+    PDRN is a genuinely interesting ingredient with real science behind it —
+    not another hyped-up plant extract. The injectable form has strong clinical
+    evidence for tissue regeneration and collagen production. The topical form
+    is promising for hydration, barrier repair, and anti-inflammatory benefits,
+    but it's not yet at the evidence level of retinol or vitamin C for
+    anti-aging specifically.
+  </p>
+  <p>
+    If you're already deep into K-beauty, a PDRN serum is worth adding to your
+    rotation. Start with the Medicube Pink Peptide Serum if you want the
+    category leader, or the COSRX if you want a budget-friendly entry point.
+    Layer it under your sunscreen and give it 4–6 weeks before judging.
+  </p>
+  <p>
+    And yes — it comes from salmon. Your skin will be fine.
+  </p>
+
+  <NewsletterSignup variant="compact" />
+
+  <h2>Related reading</h2>
+  <ul>
+    <li><a href="/">The 8 best Korean tinted sunscreens 2026</a></li>
+    <li><a href="/guides/what-is-no-white-cast-sunscreen/">What is "no white cast" sunscreen?</a></li>
+    <li><a href="/reviews/beauty-of-joseon-relief-sun-aqua-fresh/">BoJ Relief Sun Aqua-Fresh review</a></li>
+    <li><a href="/guides/best-korean-sunscreen-australia/">Best Korean sunscreen in Australia</a></li>
+  </ul>
+</Article>

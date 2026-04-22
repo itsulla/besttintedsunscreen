@@ -1,0 +1,54 @@
+---
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) =>
+  currentPath === path || currentPath.startsWith(path + "/");
+---
+
+<header class="border-b border-ink-900/10">
+  <div class="max-w-page mx-auto px-5 md:px-8 py-5 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 group">
+      <span
+        class="w-7 h-7 rounded-full bg-gradient-to-br from-sun-400 to-sun-600 shadow-sm flex items-center justify-center"
+      >
+        <span class="block w-2 h-2 rounded-full bg-cream-50 opacity-80"></span>
+      </span>
+      <span class="font-display text-base md:text-lg font-bold tracking-tight text-ink-900 leading-none">
+        Best<span class="text-sun-600">Tinted</span>Sunscreen
+      </span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-ink-600">
+      <a
+        href="/"
+        class={`hover:text-ink-900 transition-colors ${currentPath === "/" ? "text-ink-900" : ""}`}
+      >
+        Top Picks
+      </a>
+      <a
+        href="/reviews/"
+        class={`hover:text-ink-900 transition-colors ${isActive("/reviews") ? "text-ink-900" : ""}`}
+      >
+        Reviews
+      </a>
+      <a
+        href="/compare/"
+        class={`hover:text-ink-900 transition-colors ${isActive("/compare") ? "text-ink-900" : ""}`}
+      >
+        Compare
+      </a>
+      <a
+        href="/guides/"
+        class={`hover:text-ink-900 transition-colors ${isActive("/guides") ? "text-ink-900" : ""}`}
+      >
+        Guides
+      </a>
+    </nav>
+
+    <a
+      href="#top-picks"
+      class="hidden md:inline-flex items-center gap-1.5 text-xs font-medium text-sun-700 bg-sun-100 hover:bg-sun-200 transition-colors px-3 py-1.5 rounded-full"
+    >
+      See Top 3 →
+    </a>
+  </div>
+</header>

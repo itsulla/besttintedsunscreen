@@ -1,0 +1,65 @@
+---
+import AffiliateButton from "./AffiliateButton.astro";
+
+interface Pick {
+  label: string;
+  name: string;
+  brand: string;
+  why: string;
+  url: string;
+}
+
+interface Props {
+  picks: Pick[];
+}
+
+const { picks } = Astro.props;
+---
+
+<div
+  id="top-picks"
+  class="max-w-page mx-auto px-5 md:px-8 scroll-mt-24"
+>
+  <div class="bg-ink-900 text-cream-50 rounded-2xl md:rounded-3xl p-7 md:p-10 relative overflow-hidden">
+    <!-- Decorative sun -->
+    <div
+      class="absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-[0.15] pointer-events-none"
+      style="background: radial-gradient(circle at center, #FBAA3A 0%, transparent 65%);"
+    >
+    </div>
+
+    <div class="relative">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="w-6 h-px bg-sun-400"></span>
+        <span class="text-[10px] font-semibold uppercase tracking-[0.22em] text-sun-400">
+          The Short Answer
+        </span>
+      </div>
+      <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-7">
+        If you only read this box
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
+        {
+          picks.map((p, i) => (
+            <div class="relative">
+              <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-400 mb-2">
+                {p.label}
+              </div>
+              <div class="font-display font-bold text-lg leading-tight mb-1">
+                {p.name}
+              </div>
+              <div class="text-xs text-cream-200/60 uppercase tracking-wider mb-3">
+                {p.brand}
+              </div>
+              <p class="text-sm text-cream-100/80 leading-relaxed mb-4">
+                {p.why}
+              </p>
+              <AffiliateButton href={p.url} label="Check Price" variant="secondary" size="sm" />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

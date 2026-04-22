@@ -1,0 +1,231 @@
+---
+import Base from "../layouts/Base.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Schema from "../components/Schema.astro";
+import { SITE } from "../data/seo.ts";
+
+const title = "Privacy Policy";
+const description =
+  "What data Best Tinted Sunscreen collects, why we collect it, and your rights under GDPR and CCPA. No cookie banners, no dark patterns.";
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  description,
+  url: `${SITE.url}/privacy/`,
+  publisher: { "@id": `${SITE.url}#organization` },
+  dateModified: "2026-04-11",
+};
+---
+
+<Base title={title} description={description}>
+  <Schema data={pageSchema} />
+  <Breadcrumbs items={[{ name: "Privacy Policy", path: "/privacy/" }]} />
+
+  <article class="max-w-readable mx-auto px-5 md:px-8 py-10">
+    <header class="mb-12">
+      <div class="flex items-center gap-2 mb-5">
+        <span class="w-6 h-px bg-sun-600"></span>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-sun-700">
+          Legal
+        </span>
+      </div>
+      <h1 class="font-display font-bold text-ink-900 text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-tightest">
+        Privacy policy.
+      </h1>
+      <p class="mt-6 text-lg text-ink-600 leading-relaxed">
+        Short version: we don't track you across the web. We don't sell your
+        data. We don't use cookies to profile you. Here's what we actually do.
+      </p>
+    </header>
+
+    <section class="prose-editorial">
+      <h2>The quick version</h2>
+      <ul>
+        <li>
+          <strong>Analytics:</strong> anonymous pageview counts via Umami. No
+          cookies. No personal data.
+        </li>
+        <li>
+          <strong>Newsletter:</strong> if you subscribe, Beehiiv stores your
+          email address until you unsubscribe.
+        </li>
+        <li>
+          <strong>Affiliate links:</strong> when you click a "Buy" button, the
+          destination retailer (Amazon, StyleKorean, etc.) may set their own
+          cookies. We have no control over those.
+        </li>
+        <li>
+          <strong>No tracking pixels.</strong> No ad networks. No
+          cross-site profiling.
+        </li>
+      </ul>
+
+      <h2>What we collect on this site</h2>
+
+      <h3>Anonymous analytics (Umami)</h3>
+      <p>
+        We use <a href="https://umami.is" rel="noopener">Umami</a> to count
+        how many people visit which pages and how they arrived at our site.
+        Umami is specifically designed to be GDPR-compliant without a cookie
+        banner: it collects only aggregated, anonymous data.
+      </p>
+      <p>
+        Specifically, Umami records:
+      </p>
+      <ul>
+        <li>The URL of the page you visited</li>
+        <li>The URL of the page you came from (the "referrer")</li>
+        <li>Your browser type, operating system, and country (derived from your IP address, not stored)</li>
+        <li>The screen resolution of your device</li>
+      </ul>
+      <p>
+        Umami does <strong>not</strong>:
+      </p>
+      <ul>
+        <li>Set any cookies in your browser</li>
+        <li>Store your IP address</li>
+        <li>Identify you personally</li>
+        <li>Track you across different websites</li>
+        <li>Send your data to advertising networks</li>
+      </ul>
+      <p>
+        If you use Do Not Track (DNT) or a tracking blocker like uBlock
+        Origin, Umami respects it and won't record your visit at all.
+      </p>
+
+      <h3>Newsletter subscriptions (Beehiiv)</h3>
+      <p>
+        If you voluntarily submit your email address to subscribe to our
+        newsletter, that email is stored by
+        <a href="https://www.beehiiv.com" rel="noopener">Beehiiv</a>, our
+        newsletter service provider. Beehiiv processes the email on our
+        behalf under a data-processing agreement and is GDPR-compliant.
+      </p>
+      <p>
+        We use your email only to send you the Sunday sunscreen drop and
+        occasional related updates. You can unsubscribe with one click at
+        the bottom of any email we send you, and your email is deleted from
+        Beehiiv within 30 days of your unsubscribe.
+      </p>
+      <p>
+        We never sell, rent, or share your email address with third parties.
+      </p>
+
+      <h3>What we do NOT collect</h3>
+      <ul>
+        <li>Your name (we don't ask for it at signup)</li>
+        <li>Your location beyond country-level analytics</li>
+        <li>Your purchase history</li>
+        <li>Your social media profiles</li>
+        <li>Anything about you outside of this site</li>
+      </ul>
+
+      <h2>Affiliate links and external sites</h2>
+      <p>
+        When you click a "Buy on Amazon" or similar affiliate link, you leave
+        our site and arrive at the retailer's site. The retailer (Amazon,
+        StyleKorean, YesStyle, Merit, etc.) has their own privacy policy
+        that governs what happens next — including setting cookies to track
+        whether your purchase resulted from our link.
+      </p>
+      <p>
+        We have no control over and assume no responsibility for the
+        privacy practices of these third-party sites. You can read each
+        retailer's privacy policy on their own website.
+      </p>
+
+      <h2>Your rights under GDPR (EU/UK visitors)</h2>
+      <p>
+        If you're in the European Union or United Kingdom, the General Data
+        Protection Regulation gives you the following rights:
+      </p>
+      <ul>
+        <li><strong>Right to access</strong> — ask us what data we hold on you</li>
+        <li><strong>Right to erasure</strong> — ask us to delete your data</li>
+        <li><strong>Right to rectification</strong> — ask us to correct wrong data</li>
+        <li><strong>Right to data portability</strong> — export your data</li>
+        <li><strong>Right to object</strong> — opt out of processing</li>
+      </ul>
+      <p>
+        The only personal data we hold is your email address (if you
+        subscribed to the newsletter). To exercise any of these rights, email
+        <a href="mailto:hello@lekker.design">hello@lekker.design</a> and we'll
+        respond within 30 days.
+      </p>
+
+      <h2>Your rights under CCPA (California visitors)</h2>
+      <p>
+        California residents have the right to know what personal information
+        we collect and to request its deletion. As noted above, the only
+        personal information we collect is your email address (if you
+        subscribe).
+      </p>
+      <p>
+        We do <strong>not sell</strong> personal information as defined under
+        the CCPA, and we never will. This site has no "Do Not Sell My
+        Personal Information" link because there is nothing to sell.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        This site does not set any first-party cookies. We don't have a
+        cookie consent banner because we don't need consent — we don't set
+        cookies.
+      </p>
+      <p>
+        Third-party services may set their own cookies when you interact
+        with them:
+      </p>
+      <ul>
+        <li>
+          <strong>Amazon</strong> and other retailers set cookies when you
+          click through an affiliate link (this is how they credit us with
+          the referral)
+        </li>
+        <li>
+          <strong>Beehiiv</strong> sets a cookie when you visit its hosted
+          signup confirmation page after subscribing
+        </li>
+      </ul>
+
+      <h2>Data retention</h2>
+      <ul>
+        <li>Umami analytics: aggregate visitor data, no personal data stored</li>
+        <li>Beehiiv email list: until you unsubscribe + 30 days</li>
+        <li>Email correspondence: until resolved + 1 year</li>
+      </ul>
+
+      <h2>Children's privacy</h2>
+      <p>
+        This site is not directed at children under 13. We do not knowingly
+        collect information from anyone under 13. If you are a parent or
+        guardian and believe we have collected data from your child, email
+        us and we will delete it.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If we change anything in this policy, we'll update the "Last
+        updated" date at the bottom. Material changes (e.g. adding a new
+        third-party service) will be announced in the Sunday newsletter
+        before they take effect.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions, concerns, or data requests:
+        <a href="mailto:hello@lekker.design">hello@lekker.design</a>
+      </p>
+
+      <hr />
+
+      <p class="text-sm text-ink-500">
+        Last updated 2026-04-11. This policy is provided for transparency and
+        is not legal advice. If you have specific compliance concerns, consult
+        a lawyer who specializes in privacy law in your jurisdiction.
+      </p>
+    </section>
+  </article>
+</Base>

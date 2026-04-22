@@ -1,0 +1,203 @@
+---
+import Article from "../../layouts/Article.astro";
+import AffiliateButton from "../../components/AffiliateButton.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Schema from "../../components/Schema.astro";
+import { AFFILIATE } from "../../data/affiliate.ts";
+import { articleSchema } from "../../lib/schema.ts";
+
+const title =
+  "Best Korean Sunscreen Australia 2026 — Where to Buy, What to Pick";
+const description =
+  "The best Korean and tinted mineral sunscreens you can actually buy in Australia in 2026. Chemist Warehouse, Mecca, Adore Beauty and direct imports — plus what's actually TGA listed.";
+
+const articleData = articleSchema({
+  headline: title,
+  description,
+  image: "/products/boj-rice.jpg",
+  url: "/guides/best-korean-sunscreen-australia/",
+  datePublished: "2026-04-01",
+  articleSection: "Regional Guides",
+});
+---
+
+<Article
+  title={title}
+  description={description}
+  eyebrow="Guide · Australia"
+  published="April 2026"
+  readTime="5 min"
+  heroTitle="The best Korean sunscreens you can actually buy in Australia."
+>
+  <Schema data={articleData} />
+  <Breadcrumbs
+    items={[
+      { name: "Guides", path: "/guides/" },
+      { name: "Australia", path: "/guides/best-korean-sunscreen-australia/" },
+    ]}
+  />
+  <p>
+    Buying K-beauty sunscreen in Australia is weirdly annoying. Half the
+    products you see on TikTok aren't TGA listed. Chemist Warehouse carries
+    Beauty of Joseon now — but only some of the line. Mecca stocks Merit but
+    not Skin1004. Here's the straight answer on what's available, where, and
+    whether it's legit.
+  </p>
+
+  <div class="my-8 p-5 bg-cream-100 rounded-xl border border-sun-200/40">
+    <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+      Quick Answer
+    </div>
+    <p class="text-ink-700 leading-relaxed m-0">
+      Buy <strong>Beauty of Joseon Relief Sun</strong> at Chemist Warehouse
+      (TGA listed, genuine stock). If you want tinted, buy <strong>Merit The
+      Uniform</strong> through Mecca. Everything else is a direct import from
+      YesStyle or StyleKorean.
+    </p>
+  </div>
+
+  <h2>Australian sunscreen regulations matter</h2>
+  <p>
+    The TGA (Therapeutic Goods Administration) regulates sunscreens as
+    therapeutic goods. Unlike the US, Australian SPF claims are
+    <em>enforced</em>. A product labelled SPF50+ in Australia actually has
+    to hit that standard in testing.
+  </p>
+  <p>
+    The catch: most Korean sunscreens are <strong>not TGA listed</strong>.
+    They're sold as "cosmetic" personal imports rather than therapeutic
+    sunscreens. This doesn't mean they don't work — it just means their
+    Australian SPF claim isn't verified here. The Korean MFDS approval
+    process is actually rigorous, so you can generally trust the label,
+    but strictly speaking you're buying an unregulated cosmetic.
+  </p>
+  <p>
+    A few have gone through TGA listing — and those are the safest bets.
+  </p>
+
+  <h2>1. Beauty of Joseon — TGA listed ✓</h2>
+  <p>
+    The good news: <strong>BoJ Relief Sun Rice + Probiotics is TGA listed</strong>
+    and available at Chemist Warehouse for around AUD $22. This is the most
+    painless K-beauty sunscreen you can buy in Australia right now.
+  </p>
+  <p>
+    The newer <strong>Aqua-Fresh</strong> version isn't consistently stocked
+    in Australia yet — you'll have to order from Amazon AU, iHerb, or
+    StyleKorean direct.
+  </p>
+  <div class="not-prose my-6 flex flex-wrap gap-2">
+    <AffiliateButton
+      href={AFFILIATE.bojRice.amazon}
+      label="BoJ Rice (Amazon AU)"
+      size="sm"
+    />
+    <AffiliateButton
+      href={AFFILIATE.bojAquaFresh.amazon}
+      label="BoJ Aqua-Fresh (Amazon AU)"
+      size="sm"
+      variant="secondary"
+    />
+  </div>
+
+  <h2>2. Skin1004 Madagascar Centella — Adore Beauty / direct import</h2>
+  <p>
+    Skin1004 has started showing up at Adore Beauty at the AUD $30 mark.
+    It's <em>not</em> TGA listed but Adore imports through official channels
+    so you're getting authentic product. Our pick for sensitive skin in
+    Australian summer.
+  </p>
+
+  <h2>3. Merit The Uniform — Mecca ✓</h2>
+  <p>
+    Merit launched in Australia via Mecca in 2025. The Uniform Tinted
+    Mineral is AUD $62 for 30ml — pricier than US pricing but easier to
+    return if shade is wrong. Mecca has a solid exchange policy.
+  </p>
+  <div class="not-prose my-6">
+    <AffiliateButton
+      href={AFFILIATE.meritUniform.amazon}
+      label="Shop Merit The Uniform"
+    />
+  </div>
+
+  <h2>4. Numbuzin No.3 Base-skip Tone Up — direct import</h2>
+  <p>
+    Numbuzin isn't stocked at mainstream Australian retailers yet, but it's
+    available via StyleKorean and YesStyle direct imports (~10 day shipping,
+    AUD $35-45 landed). The No.3 Base-skip is the best option if you want a
+    tinted tone-up that replaces foundation — a genuinely unique product in
+    the Australian market.
+  </p>
+
+  <h2>What to avoid</h2>
+  <ul>
+    <li>
+      <strong>Amazon AU third-party sellers</strong> selling BoJ under
+      AUD $18 — almost certainly counterfeit
+    </li>
+    <li>
+      <strong>Shopee drop-shippers</strong> — fake stock rate is very high
+    </li>
+    <li>
+      <strong>Sunscreens without a MFDS or TGA approval number</strong> —
+      the claim might not be verified
+    </li>
+  </ul>
+
+  <h2>Best trusted retailers for Australia</h2>
+  <ul>
+    <li><strong>Chemist Warehouse</strong> — BoJ, CeraVe (TGA listed where applicable)</li>
+    <li><strong>Mecca</strong> — Merit, some Skin1004</li>
+    <li><strong>Adore Beauty</strong> — wider K-beauty selection, Skin1004, Numbuzin</li>
+    <li><strong>Priceline</strong> — CeraVe, growing K-beauty section</li>
+    <li><strong>StyleKorean (direct import)</strong> — the full K-beauty range, ~10 day shipping to Australia</li>
+    <li><strong>iHerb (direct import)</strong> — reliable, good prices, 5-7 day shipping</li>
+  </ul>
+
+  <h2>Why Australian skin needs K-beauty sunscreens</h2>
+  <p>
+    Australia has the highest skin cancer rates in the world. The TGA
+    already enforces strict SPF testing — so what does a Korean sunscreen
+    add? Two things:
+  </p>
+  <ul>
+    <li>
+      <strong>Elegant formulas.</strong> Australian mineral sunscreens are
+      effective but often thick and greasy. Korean formulas are designed
+      to be worn daily under makeup — you'll actually reapply them.
+    </li>
+    <li>
+      <strong>Better UVA filters.</strong> Tinosorb S and Uvinul A Plus
+      (in BoJ and other Korean brands) are more photostable than the older
+      avobenzone-based UVA filters in most Australian chemical sunscreens.
+    </li>
+  </ul>
+  <p>
+    The sunscreen you'll actually wear every day beats the "better" one
+    sitting in your drawer.
+  </p>
+
+  <div class="my-10 p-6 bg-ink-900 rounded-xl text-cream-50 not-prose">
+    <div class="font-display text-2xl font-bold mb-2">If you only buy one</div>
+    <p class="text-cream-100/90 mb-5 leading-relaxed">
+      Beauty of Joseon Relief Sun Rice, from Chemist Warehouse. AUD $22, TGA
+      listed, legitimate stock, and a genuinely excellent K-beauty sunscreen.
+      Upgrade to Aqua-Fresh if you can find it.
+    </p>
+    <AffiliateButton
+      href={AFFILIATE.bojRice.amazon}
+      label="Buy BoJ Rice on Amazon AU"
+    />
+  </div>
+
+  <NewsletterSignup variant="compact" />
+
+  <h2>Related reading</h2>
+  <ul>
+    <li><a href="/reviews/beauty-of-joseon-relief-sun-aqua-fresh/">BoJ Aqua-Fresh full review</a></li>
+    <li><a href="/">The 8 best Korean tinted sunscreens 2026 (full ranking)</a></li>
+    <li><a href="/guides/what-is-no-white-cast-sunscreen/">What does "no white cast" actually mean?</a></li>
+  </ul>
+</Article>

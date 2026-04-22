@@ -1,0 +1,55 @@
+---
+import Base from "../../layouts/Base.astro";
+import Hero from "../../components/Hero.astro";
+---
+
+<Base
+  title="Sunscreen Guides"
+  description="Buying guides and educational articles about Korean sunscreens, UV filters, and no-white-cast formulas."
+>
+  <Hero
+    eyebrow="Guides"
+    title="Sunscreen guides"
+    subtitle="The explainers and buying guides we wish existed when we first started obsessing over Korean SPF."
+  />
+
+  <section class="max-w-page mx-auto px-5 md:px-8 mt-10 grid md:grid-cols-2 gap-5">
+    <a
+      href="/guides/what-is-no-white-cast-sunscreen/"
+      class="group bg-white border border-ink-900/8 rounded-2xl p-7 hover:border-sun-300 hover:bg-sun-50/30 transition-all"
+    >
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+        Beginners
+      </div>
+      <h3 class="font-display text-xl font-bold text-ink-900 mb-2 leading-tight">
+        What is "no white cast" sunscreen?
+      </h3>
+      <p class="text-sm text-ink-600 leading-relaxed mb-4">
+        Why Korean sunscreens disappear into skin while American mineral
+        SPFs look chalky. A 5-minute explainer.
+      </p>
+      <span class="text-sm font-medium text-sun-700 group-hover:text-sun-800">
+        Read guide →
+      </span>
+    </a>
+
+    <a
+      href="/guides/best-korean-sunscreen-australia/"
+      class="group bg-white border border-ink-900/8 rounded-2xl p-7 hover:border-sun-300 hover:bg-sun-50/30 transition-all"
+    >
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+        Regional · Australia
+      </div>
+      <h3 class="font-display text-xl font-bold text-ink-900 mb-2 leading-tight">
+        Best Korean sunscreen in Australia 2026
+      </h3>
+      <p class="text-sm text-ink-600 leading-relaxed mb-4">
+        Where to actually buy K-beauty SPF in Australia — Chemist Warehouse,
+        Mecca, and which products are TGA listed.
+      </p>
+      <span class="text-sm font-medium text-sun-700 group-hover:text-sun-800">
+        Read guide →
+      </span>
+    </a>
+  </section>
+</Base>

@@ -1,0 +1,175 @@
+---
+import { NEWSLETTER } from "../data/newsletter.ts";
+
+interface Props {
+  variant?: "hero" | "inline" | "compact";
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  variant = "inline",
+  eyebrow = "Join the newsletter",
+  title,
+  subtitle,
+} = Astro.props;
+
+const effectiveTitle = title ?? NEWSLETTER.leadMagnet;
+const effectiveSubtitle = subtitle ?? NEWSLETTER.leadMagnetSubtitle;
+
+const isConfigured = NEWSLETTER.actionUrl && NEWSLETTER.actionUrl.length > 0;
+
+// Deterministic per-variant ID so the same variant on the same page
+// is stable across renders and can't collide with Math.random() output.
+const formId = `ns-${variant}-${Astro.url.pathname.replace(/\W/g, "")}`;
+---
+
+{
+  variant === "hero" && (
+    <section class="max-w-page mx-auto px-5 md:px-8 mt-16">
+      <div class="relative bg-gradient-to-br from-sun-500 to-sun-700 rounded-3xl p-8 md:p-12 overflow-hidden shadow-xl">
+        <div
+          class="absolute -top-20 -left-20 w-80 h-80 rounded-full opacity-20 pointer-events-none"
+          style="background: radial-gradient(circle at center, #FFF4D9 0%, transparent 65%);"
+        />
+        <div class="relative grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div class="text-[10px] font-semibold uppercase tracking-[0.22em] text-cream-50/80 mb-3">
+              {eyebrow}
+            </div>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-cream-50 tracking-tight leading-tight mb-3">
+              {effectiveTitle}
+            </h2>
+            <p class="text-cream-50/90 leading-relaxed">{effectiveSubtitle}</p>
+            {NEWSLETTER.showSubscriberGoal && (
+              <p class="text-cream-50/70 text-sm mt-4">
+                {NEWSLETTER.subscriberGoalLabel}
+              </p>
+            )}
+          </div>
+          <form
+            id={formId}
+            action={NEWSLETTER.actionUrl || "#"}
+            method="post"
+            class="flex flex-col gap-3"
+            data-nl-form
+          >
+            <input
+              type="email"
+              name={NEWSLETTER.emailFieldName}
+              required
+              placeholder="your@email.com"
+              class="w-full px-4 py-3 rounded-full bg-cream-50 text-ink-900 placeholder:text-ink-400 font-medium focus:outline-none focus:ring-2 focus:ring-cream-50/50"
+            />
+            {
+              Object.entries(NEWSLETTER.hiddenFields ?? {}).map(([name, value]) => (
+                <input type="hidden" name={name} value={value} />
+              ))
+            }
+            <button
+              type="submit"
+              disabled={!isConfigured}
+              class="w-full px-5 py-3 rounded-full bg-ink-900 text-cream-50 font-semibold hover:bg-ink-800 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+            >
+              {isConfigured ? "Join the Sunday drop →" : "Coming soon"}
+            </button>
+            <p class="text-[11px] text-cream-50/60 text-center">
+              One email a week. Unsubscribe in one click. No spam, ever.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+{
+  variant === "inline" && (
+    <div class="my-12 bg-cream-100 border border-sun-200/40 rounded-2xl p-7 md:p-8">
+      <div class="grid md:grid-cols-[1fr_auto] gap-6 items-center">
+        <div>
+          <div class="text-[10px] font-semibold uppercase tracking-[0.22em] text-sun-700 mb-2">
+            {eyebrow}
+          </div>
+          <h3 class="font-display text-xl md:text-2xl font-bold text-ink-900 tracking-tight mb-1">
+            {effectiveTitle}
+          </h3>
+          <p class="text-ink-600 text-sm leading-relaxed">{effectiveSubtitle}</p>
+        </div>
+        <form
+          id={formId}
+          action={NEWSLETTER.actionUrl || "#"}
+          method="post"
+          class="flex flex-col gap-2 w-full md:w-80"
+          data-nl-form
+        >
+          <input
+            type="email"
+            name={NEWSLETTER.emailFieldName}
+            required
+            placeholder="your@email.com"
+            class="px-4 py-2.5 rounded-full bg-white border border-ink-900/10 text-ink-900 placeholder:text-ink-400 text-sm focus:outline-none focus:border-sun-500"
+          />
+          {
+            Object.entries(NEWSLETTER.hiddenFields ?? {}).map(([name, value]) => (
+              <input type="hidden" name={name} value={value} />
+            ))
+          }
+          <button
+            type="submit"
+            disabled={!isConfigured}
+            class="px-4 py-2.5 rounded-full bg-ink-900 text-cream-50 font-semibold text-sm hover:bg-sun-700 disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+          >
+            {isConfigured ? "Join the drop" : "Coming soon"}
+          </button>
+        </form>
+      </div>
+    </div>
+  )
+}
+
+{
+  variant === "compact" && (
+    <div class="my-10 py-6 border-t border-b border-ink-900/10">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <div class="font-display font-semibold text-ink-900 text-lg leading-tight">
+            Enjoyed this? Get our weekly sunscreen drops in your inbox.
+          </div>
+          <div class="text-sm text-ink-500 mt-1">
+            {NEWSLETTER.subscriberGoalLabel}. No spam, unsubscribe anytime.
+          </div>
+        </div>
+        <form
+          id={formId}
+          action={NEWSLETTER.actionUrl || "#"}
+          method="post"
+          class="flex gap-2 shrink-0 w-full md:w-auto"
+          data-nl-form
+        >
+          <input
+            type="email"
+            name={NEWSLETTER.emailFieldName}
+            required
+            placeholder="email"
+            class="flex-1 md:w-56 px-4 py-2 rounded-full bg-white border border-ink-900/10 text-ink-900 placeholder:text-ink-400 text-sm focus:outline-none focus:border-sun-500"
+          />
+          {
+            Object.entries(NEWSLETTER.hiddenFields ?? {}).map(([name, value]) => (
+              <input type="hidden" name={name} value={value} />
+            ))
+          }
+          <button
+            type="submit"
+            disabled={!isConfigured}
+            class="px-4 py-2 rounded-full bg-sun-600 text-white font-semibold text-sm hover:bg-sun-700 disabled:opacity-60 disabled:cursor-not-allowed transition-all whitespace-nowrap"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  )
+}
+

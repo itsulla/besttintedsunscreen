@@ -1,0 +1,39 @@
+---
+import Schema from "./Schema.astro";
+import { breadcrumbSchema, type BreadcrumbItem } from "../lib/schema.ts";
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+// Always include Home as the first crumb
+const crumbs: BreadcrumbItem[] = [{ name: "Home", path: "/" }, ...items];
+---
+
+<nav aria-label="Breadcrumb" class="max-w-readable mx-auto px-5 md:px-8 pt-8">
+  <ol class="flex items-center gap-2 text-xs text-ink-500 flex-wrap">
+    {
+      crumbs.map((crumb, i) => {
+        const isLast = i === crumbs.length - 1;
+        return (
+          <li class="flex items-center gap-2">
+            {i > 0 && <span class="text-ink-300">/</span>}
+            {isLast ? (
+              <span class="text-ink-700 font-medium">{crumb.name}</span>
+            ) : (
+              <a
+                href={crumb.path}
+                class="hover:text-sun-700 transition-colors"
+              >
+                {crumb.name}
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>
+
+<Schema data={breadcrumbSchema(crumbs)} />

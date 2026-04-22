@@ -1,0 +1,56 @@
+---
+import Base from "./Base.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  published: string;
+  readTime: string;
+  heroTitle?: string;
+}
+
+const { title, description, eyebrow, published, readTime, heroTitle } =
+  Astro.props;
+---
+
+<Base title={title} description={description}>
+  <article>
+    <!-- Article hero -->
+    <header class="max-w-readable mx-auto px-5 md:px-8 pt-14 md:pt-20 pb-8">
+      <div class="flex items-center gap-2 mb-5">
+        <span class="w-6 h-px bg-sun-600"></span>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-sun-700">
+          {eyebrow}
+        </span>
+      </div>
+
+      <h1 class="font-display font-bold text-ink-900 text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-tightest">
+        {heroTitle ?? title}
+      </h1>
+
+      <div class="mt-6 flex items-center gap-4 text-sm text-ink-500">
+        <span>{published}</span>
+        <span class="w-1 h-1 rounded-full bg-ink-300"></span>
+        <span>{readTime} read</span>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="max-w-readable mx-auto px-5 md:px-8">
+      <div class="prose-editorial">
+        <slot />
+      </div>
+    </div>
+
+    <!-- Back link -->
+    <div class="max-w-readable mx-auto px-5 md:px-8 mt-16">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-sm font-medium text-sun-700 hover:text-sun-800"
+      >
+        ← Back to the full ranking
+      </a>
+    </div>
+  </article>
+</Base>

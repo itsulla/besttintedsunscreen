@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Schema from "../components/Schema.astro";
+import { SITE, VERIFICATION } from "../data/seo.ts";
+import { ORGANIZATION_SCHEMA, WEBSITE_SCHEMA } from "../lib/schema.ts";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const { title, description, canonical, ogImage } = Astro.props;
+const fullTitle = title.includes("|")
+  ? title
+  : `${title} | ${SITE.name}`;
+const canonicalUrl = canonical ?? `${SITE.url}${Astro.url.pathname}`;
+// OG image: page-specific override, or auto-generated per-page image,
+// or fallback to site default.
+const pathSlug = Astro.url.pathname.replace(/^\/|\/$/g, "").replace(/\//g, "-") || "index";
+const autoOgImage = `${SITE.url}/og/${pathSlug}.png`;
+const ogImg = ogImage ?? autoOgImage;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    {/* Search-engine verification meta tags (only rendered when set) */}
+    {VERIFICATION.googleSiteVerification && (
+      <meta name="google-site-verification" content={VERIFICATION.googleSiteVerification} />
+    )}
+    {VERIFICATION.bingSiteVerification && (
+      <meta name="msvalidate.01" content={VERIFICATION.bingSiteVerification} />
+    )}
+    {VERIFICATION.yandexVerification && (
+      <meta name="yandex-verification" content={VERIFICATION.yandexVerification} />
+    )}
+    {VERIFICATION.pinterestVerification && (
+      <meta name="p:domain_verify" content={VERIFICATION.pinterestVerification} />
+    )}
+
+    {/* Open Graph / Twitter */}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImg} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImg} />
+
+    {/* Robots */}
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+
+    {/* Theme color */}
+    <meta name="theme-color" content="#FBF9F4" />
+
+    {/* Site-wide Schema.org (Organization + WebSite) */}
+    <Schema data={[ORGANIZATION_SCHEMA, WEBSITE_SCHEMA]} />
+
+    {/* Umami analytics (privacy-first, no cookie banner needed) */}
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="3e30deb1-0fa4-427d-8657-364441cf32cc"></script>
+  </head>
+  <body class="noise-bg">
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

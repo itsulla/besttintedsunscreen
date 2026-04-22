@@ -1,0 +1,71 @@
+---
+interface Row {
+  name: string;
+  brand: string;
+  price: string;
+  spf: string;
+  finish: string;
+  bestFor: string;
+  rating: number; // 1-10
+  amazonUrl: string;
+}
+
+interface Props {
+  rows: Row[];
+}
+
+const { rows } = Astro.props;
+
+// 10-point input → 5-star display with half-star rounding
+const rating = (n: number) => {
+  const full = Math.round(n / 2);
+  return "★".repeat(full) + "☆".repeat(5 - full);
+};
+---
+
+<div class="overflow-x-auto -mx-5 md:mx-0 rounded-none md:rounded-2xl md:border md:border-ink-900/8">
+  <table class="w-full text-sm min-w-[640px]">
+    <thead class="bg-cream-100 border-b border-ink-900/8">
+      <tr>
+        <th class="text-left font-display font-semibold text-ink-900 px-4 py-3">Product</th>
+        <th class="text-left font-display font-semibold text-ink-900 px-4 py-3">Price</th>
+        <th class="text-left font-display font-semibold text-ink-900 px-4 py-3">SPF</th>
+        <th class="text-left font-display font-semibold text-ink-900 px-4 py-3 hidden md:table-cell">Finish</th>
+        <th class="text-left font-display font-semibold text-ink-900 px-4 py-3 hidden md:table-cell">Best For</th>
+        <th class="text-left font-display font-semibold text-ink-900 px-4 py-3">Rating</th>
+        <th class="px-4 py-3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((r) => (
+          <tr class="border-b border-ink-900/5 last:border-b-0 hover:bg-cream-50/60 transition-colors">
+            <td class="px-4 py-4">
+              <div class="text-[10px] text-ink-400 uppercase tracking-wider">
+                {r.brand}
+              </div>
+              <div class="font-semibold text-ink-900 leading-snug">{r.name}</div>
+            </td>
+            <td class="px-4 py-4 font-mono text-ink-800">{r.price}</td>
+            <td class="px-4 py-4 text-ink-700">{r.spf}</td>
+            <td class="px-4 py-4 text-ink-700 hidden md:table-cell">{r.finish}</td>
+            <td class="px-4 py-4 text-ink-700 hidden md:table-cell">{r.bestFor}</td>
+            <td class="px-4 py-4 text-sun-600 tracking-wider">
+              {rating(r.rating)}
+            </td>
+            <td class="px-4 py-4 text-right">
+              <a
+                href={r.amazonUrl}
+                target="_blank"
+                rel="nofollow sponsored noopener"
+                class="inline-flex items-center gap-1 text-xs font-semibold text-sun-700 hover:text-sun-800 whitespace-nowrap"
+              >
+                Buy →
+              </a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
