@@ -2,53 +2,49 @@
 const currentPath = Astro.url.pathname;
 const isActive = (path: string) =>
   currentPath === path || currentPath.startsWith(path + "/");
+
+const links = [
+  { label: "Reviews", href: "/reviews/" },
+  { label: "Quiz",    href: "/quiz/" },
+  { label: "Guides",  href: "/guides/" },
+  { label: "About",   href: "/about/" },
+];
 ---
 
-<header class="border-b border-ink-900/10">
-  <div class="max-w-page mx-auto px-5 md:px-8 py-5 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2 group">
-      <span
-        class="w-7 h-7 rounded-full bg-gradient-to-br from-sun-400 to-sun-600 shadow-sm flex items-center justify-center"
-      >
-        <span class="block w-2 h-2 rounded-full bg-cream-50 opacity-80"></span>
-      </span>
-      <span class="font-display text-base md:text-lg font-bold tracking-tight text-ink-900 leading-none">
-        Best<span class="text-sun-600">Tinted</span>Sunscreen
+<header class="relative z-50">
+  <div class="max-w-glow mx-auto px-8 md:px-16 py-7 flex items-center justify-between">
+    <!-- Wordmark + orb mark -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div
+        class="w-8 h-8 rounded-full flex-shrink-0"
+        style="background:radial-gradient(circle at 30% 30%,#D4A15E,#E8B088)"
+      ></div>
+      <span class="text-sm tracking-[0.2em] font-medium text-glow-ink">
+        besttintedsunscreen
       </span>
     </a>
 
-    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-ink-600">
-      <a
-        href="/"
-        class={`hover:text-ink-900 transition-colors ${currentPath === "/" ? "text-ink-900" : ""}`}
-      >
-        Top Picks
-      </a>
-      <a
-        href="/reviews/"
-        class={`hover:text-ink-900 transition-colors ${isActive("/reviews") ? "text-ink-900" : ""}`}
-      >
-        Reviews
-      </a>
-      <a
-        href="/compare/"
-        class={`hover:text-ink-900 transition-colors ${isActive("/compare") ? "text-ink-900" : ""}`}
-      >
-        Compare
-      </a>
-      <a
-        href="/guides/"
-        class={`hover:text-ink-900 transition-colors ${isActive("/guides") ? "text-ink-900" : ""}`}
-      >
-        Guides
-      </a>
+    <!-- Nav links -->
+    <nav class="hidden md:flex items-center gap-10 text-sm text-glow-muted">
+      {links.map(({ label, href }) => (
+        <a
+          href={href}
+          class={`transition-colors hover:text-glow-ink ${
+            isActive(href) ? "text-glow-ink" : ""
+          }`}
+        >
+          {label}
+        </a>
+      ))}
     </nav>
 
+    <!-- CTA -->
     <a
-      href="#top-picks"
-      class="hidden md:inline-flex items-center gap-1.5 text-xs font-medium text-sun-700 bg-sun-100 hover:bg-sun-200 transition-colors px-3 py-1.5 rounded-full"
+      href="#newsletter"
+      class="hidden md:inline-flex text-xs tracking-[0.2em] uppercase font-medium px-6 py-3 rounded-full transition-opacity hover:opacity-80"
+      style="background:#2A1A10;color:#FFF8F1"
     >
-      See Top 3 →
+      The Sunday Drop
     </a>
   </div>
 </header>

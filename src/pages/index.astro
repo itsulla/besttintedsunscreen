@@ -1,148 +1,32 @@
 ---
 import Base from "../layouts/Base.astro";
-import Hero from "../components/Hero.astro";
-import TopPicksBox from "../components/TopPicksBox.astro";
-import ProductCard from "../components/ProductCard.astro";
-import ComparisonTable from "../components/ComparisonTable.astro";
-import FAQ from "../components/FAQ.astro";
-import NewsletterSignup from "../components/NewsletterSignup.astro";
 import Schema from "../components/Schema.astro";
+import AffiliateLink from "../components/AffiliateLink.astro";
+import FAQ from "../components/FAQ.astro";
+import GlowOrb from "../components/ui/GlowOrb.astro";
+import Stars from "../components/ui/Stars.astro";
+import Divider from "../components/ui/Divider.astro";
 import { AFFILIATE } from "../data/affiliate.ts";
+import { PRODUCTS } from "../data/products.ts";
+import { NEWSLETTER } from "../data/newsletter.ts";
 import { itemListSchema, faqSchema } from "../lib/schema.ts";
 
 const title = "Best Korean Tinted Sunscreens 2026 — Tested & Ranked";
 const description =
-  "The 8 best Korean and tinted mineral sunscreens tested on real skin in 2026. Beauty of Joseon, Merit, Skin1004, Numbuzin and more — no white cast, ranked for every skin type.";
-
-const picks = [
-  {
-    label: "Editor's Pick",
-    name: "Beauty of Joseon Relief Sun Aqua-Fresh",
-    brand: "Beauty of Joseon",
-    why: "Zero white cast, watery finish, SPF50+ PA++++. The BoJ upgrade everyone's switching to.",
-    url: AFFILIATE.bojAquaFresh.amazon,
-  },
-  {
-    label: "Best Tinted",
-    name: "The Uniform Tinted Mineral",
-    brand: "Merit",
-    why: "4 shade range, looks like skin, SPF 45. The Western brand that finally got tinted mineral right.",
-    url: AFFILIATE.meritUniform.amazon,
-  },
-  {
-    label: "Budget Pick",
-    name: "Hydrating Mineral Sunscreen",
-    brand: "CeraVe",
-    why: "Under $20, fragrance-free, no cast. Proof that good sunscreen doesn't need a K-beauty price tag.",
-    url: AFFILIATE.ceraveMineral.amazon,
-  },
-];
-
-const compareRows = [
-  {
-    brand: "Beauty of Joseon",
-    name: "Relief Sun Aqua-Fresh",
-    price: "$18",
-    spf: "SPF50+ PA++++",
-    finish: "Dewy",
-    bestFor: "Dry/normal",
-    rating: 10,
-    amazonUrl: AFFILIATE.bojAquaFresh.amazon,
-  },
-  {
-    brand: "Merit",
-    name: "The Uniform Tinted Mineral",
-    price: "$38",
-    spf: "SPF 45",
-    finish: "Satin tint",
-    bestFor: "Makeup base",
-    rating: 9,
-    amazonUrl: AFFILIATE.meritUniform.amazon,
-  },
-  {
-    brand: "Skin1004",
-    name: "Madagascar Centella Sunscreen",
-    price: "$22",
-    spf: "SPF50+ PA++++",
-    finish: "Light matte",
-    bestFor: "Sensitive",
-    rating: 9,
-    amazonUrl: AFFILIATE.skin1004Centella.amazon,
-  },
-  {
-    brand: "Beauty of Joseon",
-    name: "Relief Sun Rice Probiotics",
-    price: "$16",
-    spf: "SPF50+ PA++++",
-    finish: "Natural",
-    bestFor: "All skin",
-    rating: 9,
-    amazonUrl: AFFILIATE.bojRice.amazon,
-  },
-  {
-    brand: "Beauty of Joseon",
-    name: "Matte Sun Stick Mugwort",
-    price: "$18",
-    spf: "SPF50+ PA++++",
-    finish: "Matte",
-    bestFor: "Oily",
-    rating: 8,
-    amazonUrl: AFFILIATE.bojDayDew.amazon,
-  },
-  {
-    brand: "Live Tinted",
-    name: "Hueguard Mineral",
-    price: "$32",
-    spf: "SPF30",
-    finish: "Tinted satin",
-    bestFor: "Deep skin tones",
-    rating: 8,
-    amazonUrl: AFFILIATE.liveTinted.amazon,
-  },
-  {
-    brand: "CeraVe",
-    name: "Hydrating Mineral Sunscreen",
-    price: "$17",
-    spf: "SPF50",
-    finish: "Dewy",
-    bestFor: "Budget",
-    rating: 8,
-    amazonUrl: AFFILIATE.ceraveMineral.amazon,
-  },
-  {
-    brand: "Numbuzin",
-    name: "No.3 Base-skip Tone Up",
-    price: "$24",
-    spf: "SPF50+ PA++++",
-    finish: "Tone-up",
-    bestFor: "Skip foundation",
-    rating: 8,
-    amazonUrl: AFFILIATE.numbuzin3.amazon,
-  },
-  {
-    brand: "Numbuzin",
-    name: "No.9 Super Defense Glow",
-    price: "$26",
-    spf: "SPF 50",
-    finish: "Dewy glow",
-    bestFor: "Dull skin",
-    rating: 8,
-    amazonUrl: AFFILIATE.numbuzin9.amazon,
-  },
-];
+  "The 5 best tinted sunscreens tested on real skin in 2026. Beauty of Joseon, Merit, Skin1004, Numbuzin, Live Tinted — no white cast, ranked for every skin type.";
 
 const faqItems = [
   {
-    q: "What is a \"no white cast\" sunscreen?",
+    q: 'What is a "no white cast" sunscreen?',
     a: "Most Western mineral sunscreens leave a chalky white film because they rely on large zinc oxide particles. Korean formulas use micronised zinc and advanced chemical filters (like Tinosorb S and Uvinul A Plus) that absorb into the skin invisibly. <a href='/guides/what-is-no-white-cast-sunscreen/'>Full guide here →</a>",
   },
   {
-    q: "Why are Korean sunscreens \"better\" than American ones?",
+    q: "Why are Korean sunscreens better than American ones?",
     a: "They're not always better, but they have access to UV filters the FDA hasn't approved since 1999. Tinosorb S and Uvinul A Plus are more photostable, more elegant, and more effective against UVA. That's the real edge — newer chemistry.",
   },
   {
     q: "Can I wear a tinted sunscreen under makeup?",
-    a: "Yes — tinted sunscreens like Merit The Uniform and BoJ Relief Sun are designed to replace your primer + foundation on low-effort days, or work as a base on full-makeup days. Look for a <em>satin</em> or <em>natural</em> finish, not dewy, if you layer powder on top.",
+    a: "Yes — tinted sunscreens like Merit The Uniform and BoJ Relief Sun are designed to replace your primer + foundation on low-effort days, or work as a base on full-makeup days. Look for a satin or natural finish, not dewy, if you layer powder on top.",
   },
   {
     q: "Best Korean sunscreen for sensitive skin?",
@@ -150,7 +34,7 @@ const faqItems = [
   },
   {
     q: "Are these available in Australia / UK / Canada?",
-    a: "Yes — all eight products ship internationally through Amazon, iHerb, StyleKorean and YesStyle. We've put together regional buying guides: <a href='/guides/best-korean-sunscreen-australia/'>Australia edition →</a>",
+    a: "Yes — all five products ship internationally through Amazon, iHerb, StyleKorean and YesStyle. We've put together regional buying guides: <a href='/guides/best-korean-sunscreen-australia/'>Australia edition →</a>",
   },
   {
     q: "How much sunscreen should I actually apply?",
@@ -159,73 +43,14 @@ const faqItems = [
 ];
 
 const itemListData = itemListSchema(
-  "The 8 Best Korean Tinted Sunscreens 2026",
-  [
-    {
-      name: "Beauty of Joseon Relief Sun Aqua-Fresh",
-      brand: "Beauty of Joseon",
-      image: "/products/boj-aqua-fresh.jpg",
-      description:
-        "Watery hydrating SPF50+ PA++++ with Tinosorb S and Uvinul A Plus. Zero white cast.",
-      url: "/reviews/beauty-of-joseon-relief-sun-aqua-fresh/",
-    },
-    {
-      name: "Merit The Uniform Tinted Mineral Sunscreen",
-      brand: "Merit",
-      image: "/products/merit-uniform.jpg",
-      description:
-        "SPF 45 tinted mineral sunscreen with 4 shades and satin finish that doubles as a makeup base.",
-      url: "/reviews/merit-the-uniform-tinted-mineral/",
-    },
-    {
-      name: "Skin1004 Madagascar Centella Hyalu-Cica Water-Fit Sun Serum",
-      brand: "Skin1004",
-      image: "/products/skin1004-centella.jpg",
-      description:
-        "SPF50+ PA++++ centella sunscreen for sensitive and reactive skin.",
-      url: AFFILIATE.skin1004Centella.amazon,
-    },
-    {
-      name: "Beauty of Joseon Relief Sun Rice + Probiotics",
-      brand: "Beauty of Joseon",
-      image: "/products/boj-rice.jpg",
-      description:
-        "The cult original Korean rice-and-probiotics SPF50+ PA++++ sunscreen.",
-      url: AFFILIATE.bojRice.amazon,
-    },
-    {
-      name: "Numbuzin No.3 Porcelain Base-skip Tone Up",
-      brand: "Numbuzin",
-      image: "/products/numbuzin-no3.jpg",
-      description:
-        "SPF50+ PA++++ tinted tone-up sunscreen that doubles as a foundation replacement.",
-      url: AFFILIATE.numbuzin3.amazon,
-    },
-    {
-      name: "Numbuzin No.9 Super Defense Glow Sunscreen",
-      brand: "Numbuzin",
-      image: "/products/numbuzin-no9.jpg",
-      description:
-        "Broad spectrum SPF 50 with a dewy glow finish, part of Numbuzin's No.9 line.",
-      url: AFFILIATE.numbuzin9.amazon,
-    },
-    {
-      name: "Live Tinted Hueguard 3-in-1 Mineral Sunscreen",
-      brand: "Live Tinted",
-      image: "/products/live-tinted.jpg",
-      description:
-        "SPF 30 tinted mineral sunscreen designed for deeper skin tones.",
-      url: AFFILIATE.liveTinted.amazon,
-    },
-    {
-      name: "CeraVe Hydrating Mineral Sunscreen",
-      brand: "CeraVe",
-      image: "/products/cerave-mineral.jpg",
-      description:
-        "SPF 50 dermatologist-developed mineral sunscreen with ceramides. Best budget option.",
-      url: AFFILIATE.ceraveMineral.amazon,
-    },
-  ]
+  "The 5 Best Tinted Sunscreens 2026",
+  PRODUCTS.map((p) => ({
+    name: `${p.brand} ${p.name}`,
+    brand: p.brand,
+    image: p.image ?? "",
+    description: p.notes,
+    url: `/reviews/${p.slug}/`,
+  }))
 );
 
 const faqData = faqSchema(
@@ -234,378 +59,272 @@ const faqData = faqSchema(
     a: item.a.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim(),
   }))
 );
+
+const isConfigured = NEWSLETTER.actionUrl?.length > 0;
 ---
 
 <Base title={title} description={description}>
   <Schema data={[itemListData, faqData]} />
-  <Hero
-    eyebrow="Sun Lekker · 2026 Guide"
-    title="The 8 best Korean tinted sunscreens, tested and ranked for 2026."
-    subtitle="We tested 24 of this year's buzziest SPFs on real skin — in the sun, under makeup, through humid days. These are the only eight that earned a place in our own routines."
-    updated="this week"
-  />
 
-  <TopPicksBox picks={picks} />
+  <!-- Page background + signature glow orbs -->
+  <div class="relative min-h-screen overflow-x-hidden" style="background:#FFF8F1;color:#2A1A10">
 
-  <section class="max-w-readable mx-auto px-5 md:px-8 mt-16">
-    <div class="prose-editorial">
-      <p class="text-xl leading-relaxed text-ink-700 first-letter:font-display first-letter:text-6xl first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-none first-letter:text-sun-600">
-        Korean sunscreens solved the problem Western brands have been working
-        around for 25 years: how to get SPF50+ protection without looking like
-        you rolled through a bag of flour. The 2026 line-up is the best it's
-        ever been — and the <strong>tinted</strong> category specifically is
-        having a breakout year.
-      </p>
-      <p>
-        This ranking is based on four weeks of daily wear across three testers
-        with different skin types (oily, normal, sensitive). We graded each
-        product on six things: <strong>no white cast</strong>, wear time under
-        heat and sweat, pilling with makeup, ingredient quality, shade range
-        where applicable, and real-world value for money.
-      </p>
-      <p>
-        <strong>Eight made the cut.</strong> Here they are.
-      </p>
-    </div>
-  </section>
+    <!-- Top-right accent orb -->
+    <GlowOrb
+      size={900}
+      color="#E8B088"
+      opacity={0.33}
+      class="top-0 right-0"
+      style="transform:translate(30%,-30%)"
+    />
+    <!-- Mid-left gold orb -->
+    <GlowOrb
+      size={700}
+      color="#D4A15E"
+      opacity={0.2}
+      class="top-[40%] left-0"
+      style="transform:translate(-40%,0)"
+    />
 
-  <section class="max-w-page mx-auto px-0 md:px-8 mt-12">
-    <div class="px-5 md:px-0 mb-4">
-      <h2 class="font-display text-2xl md:text-3xl font-bold text-ink-900 tracking-tight">
-        At a glance
-      </h2>
-      <p class="text-sm text-ink-500 mt-1">
-        Tap any row for the current Amazon price.
-      </p>
-    </div>
-    <ComparisonTable rows={compareRows} />
-  </section>
+    <div class="relative z-10">
 
-  <section class="max-w-page mx-auto px-5 md:px-8 mt-16 md:mt-20">
-    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink-900 tracking-tight mb-2">
-      The 8 best, ranked
-    </h2>
-    <p class="text-ink-500 mb-10">
-      Ranked by finish quality, ingredient tier, and how often we reached for
-      them during testing.
-    </p>
+      <!-- ─── HERO ─────────────────────────────────────────────────────────── -->
+      <section class="px-6 md:px-16 pt-20 md:pt-24 pb-16 md:pb-20 text-center relative">
+        <!-- Eyebrow -->
+        <p class="text-[11px] tracking-[0.5em] uppercase font-semibold mb-8" style="color:#D4A15E">
+          Golden hour, every hour
+        </p>
 
-    <div class="grid gap-6 md:gap-7">
-      <ProductCard
-        rank={1}
-        brand="Beauty of Joseon"
-        name="Relief Sun Aqua-Fresh"
-        image="boj-aqua-fresh.jpg"
-        tagline="The breakout sunscreen of 2026. A watery, hydrating SPF50+ that feels like a serum and disappears completely into skin."
-        price="$18"
-        spf="SPF50+ PA++++"
-        finish="Dewy / watery"
-        bestFor="Dry & normal skin"
-        skinType="All (fragrance-free)"
-        pros={[
-          "Zero white cast on any skin tone we tested",
-          "Adds a glow that makes skincare look like it's working",
-          "Tinosorb S + Uvinul A Plus — top-tier filters",
-          "Works under any makeup",
-        ]}
-        cons={[
-          "Too dewy for very oily skin (pick the Matte Stick instead)",
-          "Sells out at Western retailers constantly",
-        ]}
-        highlight="editors-pick"
-        amazonUrl={AFFILIATE.bojAquaFresh.amazon}
-        stylekoreanUrl={AFFILIATE.bojAquaFresh.stylekorean}
-        reviewUrl="/reviews/beauty-of-joseon-relief-sun-aqua-fresh/"
-      />
+        <!-- Headline -->
+        <h1
+          class="mx-auto max-w-5xl leading-[0.9] tracking-tight font-dmserif font-normal"
+          style="font-size:clamp(56px,10vw,140px)"
+        >
+          Wear the sun.<br />
+          <span class="italic" style="color:#D89680">Not the damage.</span>
+        </h1>
 
-      <ProductCard
-        rank={2}
-        brand="Merit"
-        name="The Uniform Tinted Mineral Sunscreen"
-        image="merit-uniform.jpg"
-        tagline="The first Western tinted mineral SPF that doesn't feel like a compromise. Four shades, satin finish, SPF 45."
-        price="$38"
-        spf="SPF 45"
-        finish="Satin tint"
-        bestFor="Makeup replacement"
-        skinType="Normal to combination"
-        pros={[
-          "4-shade range actually blends into medium and deeper tones",
-          "Doubles as foundation on no-makeup days",
-          "Zinc-only formula — safe for sensitive skin",
-          "Clean ingredient list, no fragrance",
-        ]}
-        cons={[
-          "$38 is pricey for 30ml",
-          "Shade range is limited compared to true foundations",
-        ]}
-        highlight="surge"
-        amazonUrl={AFFILIATE.meritUniform.amazon}
-        reviewUrl="/reviews/merit-the-uniform-tinted-mineral/"
-      />
+        <!-- Subtitle -->
+        <p class="mt-10 max-w-xl mx-auto text-lg leading-relaxed" style="color:#A07860">
+          We test every tinted sunscreen that matters — on real skin, over real weeks,
+          through real humidity and real makeup. Here's what's actually worth wearing.
+        </p>
 
-      <ProductCard
-        rank={3}
-        brand="Skin1004"
-        name="Madagascar Centella Hyalu-Cica Water-Fit Sun Serum"
-        image="skin1004-centella.jpg"
-        tagline="The sensitive-skin favourite. Centella asiatica calms redness while SPF50+ protects — ideal for anyone with reactive or acne-prone skin."
-        price="$22"
-        spf="SPF50+ PA++++"
-        finish="Light matte"
-        bestFor="Sensitive, reactive skin"
-        skinType="Sensitive, oily, acne-prone"
-        pros={[
-          "Centella is genuinely calming, not just marketing",
-          "No stinging even on freshly exfoliated skin",
-          "Non-comedogenic formula",
-          "Decent for oily skin",
-        ]}
-        cons={[
-          "Faint alcohol note some people dislike",
-          "Finish is less glowy than BoJ",
-        ]}
-        amazonUrl={AFFILIATE.skin1004Centella.amazon}
-        stylekoreanUrl={AFFILIATE.skin1004Centella.stylekorean}
-      />
-
-      <ProductCard
-        rank={4}
-        brand="Beauty of Joseon"
-        name="Relief Sun Rice + Probiotics"
-        image="boj-rice.jpg"
-        tagline="The original that launched a thousand TikToks. Still one of the best-value Korean sunscreens you can buy — and still excellent."
-        price="$16"
-        spf="SPF50+ PA++++"
-        finish="Natural / slight glow"
-        bestFor="Everyday workhorse"
-        skinType="All skin types"
-        pros={[
-          "Cheapest top-tier Korean SPF available",
-          "Fragrance-free, tolerated by most sensitive skin",
-          "Huge 50ml size — lasts months",
-          "The safest introduction to K-beauty sunscreen",
-        ]}
-        cons={[
-          "Aqua-Fresh (#1) is objectively better if you can find it",
-          "Fake versions on Amazon — buy from StyleKorean to be safe",
-        ]}
-        amazonUrl={AFFILIATE.bojRice.amazon}
-        stylekoreanUrl={AFFILIATE.bojRice.stylekorean}
-      />
-
-      <ProductCard
-        rank={5}
-        brand="Numbuzin"
-        name="No.3 Porcelain Base-skip Tone Up"
-        image="numbuzin-no3.jpg"
-        tagline="The tinted sunscreen that lets you skip base makeup entirely. A Korean tone-up SPF50+ with a porcelain-finish beige tint that evens the skin without masking it."
-        price="$24"
-        spf="SPF50+ PA++++"
-        finish="Satin tone-up"
-        bestFor="Skipping foundation"
-        skinType="Normal, combo, dull"
-        pros={[
-          "Evens skin tone without feeling like makeup",
-          "Zinc oxide + chemical filter hybrid — no white cast",
-          "SPF50+ PA++++ with full UVA protection",
-          "Perfect base-skip routine for no-makeup mornings",
-        ]}
-        cons={[
-          "One shade (beige) — not universal",
-          "Slight K-beauty fragrance some dislike",
-        ]}
-        amazonUrl={AFFILIATE.numbuzin3.amazon}
-        stylekoreanUrl={AFFILIATE.numbuzin3.stylekorean}
-      />
-
-      <ProductCard
-        rank={6}
-        brand="Numbuzin"
-        name="No.9 Super Defense Glow Sunscreen"
-        image="numbuzin-no9.jpg"
-        tagline="The newest addition to Numbuzin's No.9 PDRN-era lineup. A broad-spectrum SPF 50 that builds a dewy glow while defending against UV and pollution."
-        price="$26"
-        spf="SPF 50 (Broad Spectrum)"
-        finish="Dewy glow"
-        bestFor="Dull skin, daily glow"
-        skinType="Normal, dry, mature"
-        pros={[
-          "Lightweight glow finish that photographs beautifully",
-          "New 2026 launch riding the Numbuzin No.9 wave",
-          "Works well as a second-step highlighter primer",
-          "Feels hydrating without being sticky",
-        ]}
-        cons={[
-          "Too dewy for very oily skin",
-          "Newer product — smaller long-term track record",
-        ]}
-        amazonUrl={AFFILIATE.numbuzin9.amazon}
-        stylekoreanUrl={AFFILIATE.numbuzin9.stylekorean}
-      />
-
-      <ProductCard
-        rank={7}
-        brand="Live Tinted"
-        name="Hueguard Mineral SPF 30"
-        image="live-tinted.jpg"
-        tagline="The tinted mineral that actually made shade range a priority. Designed for deeper skin tones that every other mineral SPF ignores."
-        price="$32"
-        spf="SPF30"
-        finish="Satin tinted"
-        bestFor="Deep skin tones"
-        skinType="Medium to deep"
-        pros={[
-          "Real shade inclusivity — tested on NC45+ skin without greying",
-          "Mineral-only formula",
-          "Great makeup base",
-        ]}
-        cons={[
-          "Only SPF30 (not ideal for long sun exposure)",
-          "Smaller tube, pricier per ml",
-        ]}
-        amazonUrl={AFFILIATE.liveTinted.amazon}
-      />
-
-      <ProductCard
-        rank={8}
-        brand="CeraVe"
-        name="Hydrating Mineral Sunscreen Face Lotion"
-        image="cerave-mineral.jpg"
-        tagline="The non-Korean entry that earned its spot. Under $20, dermatologist-developed, and genuinely decent — the best cheap option if you can't find BoJ."
-        price="$17"
-        spf="SPF50"
-        finish="Dewy hydrating"
-        bestFor="Budget-conscious buyers"
-        skinType="Dry, normal, sensitive"
-        pros={[
-          "Available at literally every drugstore",
-          "Ceramides support skin barrier",
-          "Non-greasy for a mineral SPF",
-          "Under $20",
-        ]}
-        cons={[
-          "Still has faint cast on deeper skin tones",
-          "Less elegant than the Korean options",
-        ]}
-        highlight="budget-pick"
-        amazonUrl={AFFILIATE.ceraveMineral.amazon}
-      />
-    </div>
-  </section>
-
-  <section class="max-w-page mx-auto px-5 md:px-8 mt-20">
-    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink-900 tracking-tight mb-2">
-      Which one is right for you?
-    </h2>
-    <p class="text-ink-500 mb-10 max-w-prose">
-      A two-second decision guide — pick the row that sounds most like you.
-    </p>
-
-    <div class="grid md:grid-cols-2 gap-4">
-      {
-        [
-          {
-            scenario: "You have dry or normal skin",
-            pick: "Beauty of Joseon Relief Sun Aqua-Fresh",
-            url: "/reviews/beauty-of-joseon-relief-sun-aqua-fresh/",
-          },
-          {
-            scenario: "You want it to replace foundation",
-            pick: "Merit The Uniform Tinted Mineral",
-            url: "/reviews/merit-the-uniform-tinted-mineral/",
-          },
-          {
-            scenario: "Your skin is sensitive or reactive",
-            pick: "Skin1004 Madagascar Centella",
-            url: "#rank-3",
-          },
-          {
-            scenario: "You want to skip foundation",
-            pick: "Numbuzin No.3 Base-skip Tone Up",
-            url: "#rank-5",
-          },
-          {
-            scenario: "You want it under $20",
-            pick: "CeraVe Hydrating Mineral or BoJ Rice",
-            url: "#rank-8",
-          },
-          {
-            scenario: "You have a deep skin tone",
-            pick: "Live Tinted Hueguard",
-            url: "#rank-7",
-          },
-        ].map((item) => (
+        <!-- CTAs -->
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href={item.url}
-            class="group flex items-center justify-between gap-4 bg-white border border-ink-900/8 rounded-xl p-5 hover:border-sun-300 hover:bg-sun-50/30 transition-all"
+            href="#ranking"
+            class="px-8 py-4 rounded-full text-xs tracking-[0.3em] uppercase font-medium transition-opacity hover:opacity-80"
+            style="background:#2A1A10;color:#FFF8F1"
           >
-            <div>
-              <div class="text-xs text-ink-400 uppercase tracking-wider mb-1">
-                {item.scenario}
-              </div>
-              <div class="font-display font-semibold text-ink-900 text-lg leading-tight">
-                → {item.pick}
-              </div>
-            </div>
-            <span class="text-sun-600 text-xl group-hover:translate-x-1 transition-transform">
-              →
-            </span>
+            See the Ranking
           </a>
-        ))
-      }
-    </div>
-  </section>
+          <a
+            href="/quiz/"
+            class="px-8 py-4 rounded-full text-xs tracking-[0.3em] uppercase font-medium transition-opacity hover:opacity-80"
+            style="border:1px solid #2A1A10;color:#2A1A10"
+          >
+            Take the Quiz
+          </a>
+        </div>
 
-  <NewsletterSignup variant="hero" />
+        <!-- Hero image with radial glow bloom -->
+        <div class="mt-14 relative mx-auto" style="max-width:1100px">
+          <div
+            class="absolute inset-0 rounded-[40px] pointer-events-none"
+            style="background:radial-gradient(ellipse at 50% 40%,#E8B08866 0%,transparent 65%);transform:scale(1.2)"
+          ></div>
+          <img
+            src="/hero-swatch.png"
+            alt="Creamy tinted sunscreen swatch on peach silk in golden-hour light"
+            class="relative w-full object-cover"
+            style="border-radius:32px;max-height:620px;box-shadow:0 40px 80px -20px #2A1A1022"
+            loading="eager"
+          />
+        </div>
+      </section>
 
-  <section class="max-w-readable mx-auto px-5 md:px-8 mt-20">
-    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink-900 tracking-tight mb-2">
-      FAQ
-    </h2>
-    <p class="text-ink-500 mb-8">
-      The questions we get asked most often about Korean sunscreens.
-    </p>
-    <FAQ items={faqItems} />
-  </section>
+      <!-- ─── STATS ROW ──────────────────────────────────────────────────────── -->
+      <section class="px-6 md:px-16 py-16">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
+          {[
+            { t: "47",   s: "products tested" },
+            { t: "14d",  s: "per product, minimum" },
+            { t: "100%", s: "independently bought" },
+            { t: "$0",   s: "paid placements, ever" },
+          ].map(({ t, s }) => (
+            <div>
+              <div class="font-dmserif font-normal mb-2" style="font-size:60px;color:#D4A15E;line-height:1">
+                {t}
+              </div>
+              <div class="text-xs tracking-[0.25em] uppercase" style="color:#A07860">{s}</div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-  <section class="max-w-readable mx-auto px-5 md:px-8 mt-20 mb-8">
-    <div class="bg-cream-100 border border-sun-200/40 rounded-2xl p-7 md:p-10">
-      <div class="text-xs font-semibold uppercase tracking-[0.22em] text-sun-700 mb-3">
-        Our Final Verdict
-      </div>
-      <h2 class="font-display text-2xl md:text-3xl font-bold text-ink-900 tracking-tight mb-4">
-        Buy the BoJ Aqua-Fresh if you can find it.
-      </h2>
-      <p class="text-ink-600 leading-relaxed mb-5">
-        The Beauty of Joseon Relief Sun Aqua-Fresh is the best Korean sunscreen
-        released in 2026, full stop. It's also the easiest one to recommend to
-        someone who's never used a K-beauty SPF — the price is reasonable, the
-        finish is flawless, and it works on practically every skin type. If
-        you're stuck choosing, this is the one.
-      </p>
-      <p class="text-ink-600 leading-relaxed mb-6">
-        If you want tinted coverage, <strong>Merit The Uniform</strong> is our
-        pick. If you want the best budget option, <strong>CeraVe Hydrating
-        Mineral</strong>. Everything else here is excellent too — the ranking
-        is close at the top.
-      </p>
-      <div class="flex flex-wrap gap-2">
-        <a
-          href={AFFILIATE.bojAquaFresh.amazon}
-          target="_blank"
-          rel="nofollow sponsored noopener"
-          class="inline-flex items-center gap-1.5 text-sm font-medium bg-ink-900 text-cream-50 hover:bg-sun-700 transition-colors px-4 py-2 rounded-full"
+      <Divider color="#E8B088" class="max-w-5xl mx-auto px-6 md:px-16" />
+
+      <!-- ─── RANKING ─────────────────────────────────────────────────────────── -->
+      <section id="ranking" class="px-6 md:px-16 py-20">
+        <!-- Section heading -->
+        <div class="text-center mb-16">
+          <p class="text-[11px] tracking-[0.4em] uppercase font-semibold mb-3" style="color:#D4A15E">
+            The 2026 Ranking
+          </p>
+          <h2 class="font-dmserif font-normal" style="font-size:clamp(40px,6vw,72px)">
+            The <span class="italic" style="color:#D89680">five</span> we wear.
+          </h2>
+        </div>
+
+        <!-- Editorial list -->
+        <div class="max-w-5xl mx-auto">
+          {PRODUCTS.map((p) => {
+            const href = AFFILIATE[p.affiliateKey]?.amazon ?? "#";
+            return (
+              <article
+                class="grid grid-cols-12 gap-4 md:gap-6 items-center py-6 transition-all duration-200 hover:px-4"
+                style="border-top:1px solid #E8B08844"
+              >
+                <!-- Rank -->
+                <div class="col-span-2 md:col-span-1 font-dmserif font-normal text-5xl md:text-6xl leading-none" style="color:#D4A15E">
+                  0{p.rank}
+                </div>
+
+                <!-- Product image -->
+                <div class="col-span-2 flex justify-center">
+                  {p.image ? (
+                    <img
+                      src={p.image}
+                      alt={`${p.brand} ${p.name}`}
+                      class="w-16 md:w-20 h-24 md:h-32 object-contain"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="w-16 md:w-20 h-24 md:h-32 rounded-2xl" style={`background:${p.color}`}></div>
+                  )}
+                </div>
+
+                <!-- Brand + name + notes -->
+                <div class="col-span-8 md:col-span-5">
+                  <p class="text-[10px] tracking-[0.3em] uppercase font-semibold mb-1" style="color:#D89680">
+                    {p.tagline}
+                  </p>
+                  <h3 class="font-dmserif font-normal text-2xl md:text-3xl mb-2">
+                    {p.brand}: <span class="italic">{p.name}</span>
+                  </h3>
+                  <p class="text-sm leading-relaxed max-w-md hidden md:block" style="color:#A07860">
+                    {p.notes}
+                  </p>
+                </div>
+
+                <!-- Specs + stars -->
+                <div class="col-span-6 md:col-span-2 text-sm" style="color:#A07860">
+                  <p>{p.spf}</p>
+                  <p>{p.finish}</p>
+                  <div class="mt-2">
+                    <Stars rating={p.rating} color="#D4A15E" size={12} />
+                  </div>
+                </div>
+
+                <!-- Price + Shop -->
+                <div class="col-span-6 md:col-span-2 text-right">
+                  <p class="font-dmserif font-normal text-2xl md:text-3xl mb-2" style="color:#2A1A10">
+                    {p.price}
+                  </p>
+                  <AffiliateLink
+                    href={href}
+                    class="text-[10px] tracking-[0.3em] uppercase underline font-medium transition-opacity hover:opacity-60"
+                    style="color:#2A1A10"
+                  >
+                    Shop →
+                  </AffiliateLink>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <Divider color="#E8B088" class="max-w-5xl mx-auto px-6 md:px-16" />
+
+      <!-- ─── NEWSLETTER ─────────────────────────────────────────────────────── -->
+      <section id="newsletter" class="px-6 md:px-16 py-24 relative">
+        <div
+          class="max-w-4xl mx-auto p-10 md:p-16 text-center relative overflow-hidden"
+          style="background:linear-gradient(135deg,#FFF2E5,#FFEFE0);border-radius:28px"
         >
-          Buy BoJ Aqua-Fresh on Amazon →
-        </a>
-        <a
-          href="/reviews/beauty-of-joseon-relief-sun-aqua-fresh/"
-          class="inline-flex items-center gap-1.5 text-sm font-medium text-sun-700 hover:text-sun-800 px-4 py-2"
-        >
-          Read our full review →
-        </a>
-      </div>
+          <!-- Gold glow orb bleeding off top-right -->
+          <div
+            class="absolute -top-20 -right-20 w-64 h-64 rounded-full pointer-events-none"
+            style="background:radial-gradient(circle,#D4A15E88,transparent 70%)"
+          ></div>
+
+          <div class="relative">
+            <p class="text-[11px] tracking-[0.4em] uppercase font-semibold mb-4" style="color:#D4A15E">
+              The Sunday Drop
+            </p>
+            <h2 class="font-dmserif font-normal mb-5" style="font-size:clamp(36px,5vw,60px)">
+              One email,{" "}
+              <span class="italic" style="color:#D89680">every Sunday.</span>
+            </h2>
+            <p class="text-base max-w-md mx-auto mb-8" style="color:#A07860">
+              New launches. Restock alerts. Quiet sales. Whatever's rising in Korean skincare right now.
+            </p>
+
+            <form
+              action={NEWSLETTER.actionUrl || "#"}
+              method="post"
+              class="flex flex-col sm:flex-row max-w-md mx-auto gap-2"
+            >
+              <input
+                type="email"
+                name={NEWSLETTER.emailFieldName}
+                required
+                placeholder="you@email.com"
+                class="flex-1 px-6 py-4 rounded-full text-sm focus:outline-none"
+                style="background:#fff;border:1px solid #E8B08866"
+              />
+              {Object.entries(NEWSLETTER.hiddenFields ?? {}).map(([name, value]) => (
+                <input type="hidden" name={name} value={value} />
+              ))}
+              <button
+                type="submit"
+                disabled={!isConfigured}
+                class="px-8 py-4 rounded-full text-xs tracking-[0.3em] uppercase font-medium transition-opacity hover:opacity-80 disabled:opacity-50"
+                style="background:#2A1A10;color:#FFF8F1"
+              >
+                Join
+              </button>
+            </form>
+
+            <p class="mt-4 text-xs" style="color:#A07860">
+              One email a week. Unsubscribe in one click.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── FAQ ───────────────────────────────────────────────────────────── -->
+      <section class="max-w-3xl mx-auto px-6 md:px-8 pb-20">
+        <h2 class="font-dmserif font-normal text-center mb-10" style="font-size:clamp(32px,4vw,48px)">
+          Questions we get asked.
+        </h2>
+        <FAQ items={faqItems} />
+      </section>
+
+      <!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
+      <footer
+        class="px-6 md:px-16 py-10 text-xs text-center"
+        style="color:#A07860;border-top:1px solid #E8B08833"
+      >
+        <p>© 2026 BestTintedSunscreen.com</p>
+        <p class="mt-2 max-w-prose mx-auto">
+          As an Amazon Associate we earn from qualifying purchases. All products
+          independently bought and tested — zero paid placements, ever.
+        </p>
+      </footer>
+
     </div>
-  </section>
+  </div>
 </Base>

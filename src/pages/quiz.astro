@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import GlowOrb from "../components/ui/GlowOrb.astro";
+import Divider from "../components/ui/Divider.astro";
+import QuizIsland from "../components/QuizIsland.tsx";
+
+const title = "Find Your SPF | Best Tinted Sunscreen";
+const description =
+  "Two minutes, one answer. Tell us your skin type, finish preference, and budget — we'll match you to the tinted sunscreen that disappears on you.";
+---
+
+<Base title={title} description={description}>
+  <div class="relative min-h-screen overflow-x-hidden" style="background:#FFF8F1;color:#2A1A10">
+
+    <!-- Background orbs -->
+    <GlowOrb size={800} color="#E8B088" opacity={0.3} class="top-0 right-0" style="transform:translate(30%,-30%)" />
+    <GlowOrb size={600} color="#D4A15E" opacity={0.18} class="bottom-0 left-0" style="transform:translate(-40%,20%)" />
+
+    <div class="relative z-10">
+
+      <!-- ─── INTRO ────────────────────────────────────────────────────────── -->
+      <section class="px-6 md:px-16 pt-16 pb-10 text-center max-w-glow mx-auto">
+        <p class="text-[11px] tracking-[0.5em] uppercase font-semibold mb-5" style="color:#D4A15E">
+          Two minutes, one answer
+        </p>
+        <h1
+          class="font-dmserif font-normal leading-[0.9] max-w-4xl mx-auto"
+          style="font-size:clamp(48px,7vw,80px)"
+        >
+          Find the SPF<br />
+          <span class="italic" style="color:#D89680">that disappears on you.</span>
+        </h1>
+        <p class="mt-6 text-base max-w-md mx-auto" style="color:#A07860">
+          Answer four questions. We'll match you to the tinted sunscreen that suits your skin, your routine, and your budget.
+        </p>
+      </section>
+
+      <Divider color="#E8B088" class="max-w-3xl mx-auto px-6 md:px-16 mb-12" />
+
+      <!-- ─── QUIZ ISLAND ──────────────────────────────────────────────────── -->
+      <div class="px-6 md:px-16 max-w-glow mx-auto">
+        <QuizIsland client:load />
+      </div>
+
+    </div>
+  </div>
+</Base>

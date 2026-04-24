@@ -1,0 +1,14 @@
+---
+import Sparkle from "./Sparkle.astro";
+interface Props {
+  color?: string;
+  class?: string;
+}
+const { color = "#D4A15E", class: clazz = "" } = Astro.props;
+---
+
+<div class={`flex items-center gap-3 ${clazz}`}>
+  <div class="h-px flex-1" style={`background:${color};opacity:0.4`}></div>
+  <Sparkle color={color} size={10} />
+  <div class="h-px flex-1" style={`background:${color};opacity:0.4`}></div>
+</div>

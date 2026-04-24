@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['"Fraunces"', "Georgia", "serif"],
+        dmserif: ['"DM Serif Display"', "Georgia", "serif"],
         sans: ['"Inter"', "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
       },
@@ -24,7 +25,6 @@ export default {
           300: "#BDB4A3",
         },
         sun: {
-          // warm sunset orange/gold as the brand color
           50: "#FFF8EB",
           100: "#FFEFCE",
           200: "#FEDE9B",
@@ -36,15 +36,31 @@ export default {
           800: "#7A3E0E",
           900: "#5A2E0C",
         },
+        glow: {
+          bg:     "#FFF8F1",
+          bg2:    "#FFEFE0",
+          panel:  "#FFF2E5",
+          ink:    "#2A1A10",
+          muted:  "#A07860",
+          accent: "#E8B088",
+          gold:   "#D4A15E",
+          rose:   "#D89680",
+        },
       },
       letterSpacing: {
         tightest: "-0.04em",
-        tighter: "-0.025em",
+        tighter:  "-0.025em",
+        widest:   "0.5em",
       },
       maxWidth: {
-        prose: "65ch",
+        prose:    "65ch",
         readable: "42rem",
-        page: "72rem",
+        page:     "72rem",
+        glow:     "90rem",
+      },
+      borderRadius: {
+        "4xl": "2rem",
+        "5xl": "2.5rem",
       },
     },
   },

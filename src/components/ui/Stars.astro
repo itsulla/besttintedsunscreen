@@ -1,0 +1,36 @@
+---
+interface Props {
+  rating: number;
+  color?: string;
+  size?: number;
+}
+const { rating, color = "#D4A15E", size = 14 } = Astro.props;
+const full = Math.floor(rating);
+const half = rating % 1 >= 0.5;
+---
+
+<div class="inline-flex items-center gap-0.5" style={`color:${color}`}>
+  {[0, 1, 2, 3, 4].map((i) => {
+    const filled = i < full;
+    const halfFill = !filled && i === full && half;
+    const gradId = `star-${i}-${color.replace("#", "")}`;
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24">
+        {halfFill && (
+          <defs>
+            <linearGradient id={gradId} x1="0%" x2="100%">
+              <stop offset="50%" stop-color={color} />
+              <stop offset="50%" stop-color={color} stop-opacity="0.25" />
+            </linearGradient>
+          </defs>
+        )}
+        <path
+          d="M12 2 L15 9 L22 9.5 L17 14.5 L18.5 22 L12 18 L5.5 22 L7 14.5 L2 9.5 L9 9 Z"
+          fill={filled ? color : halfFill ? `url(#${gradId})` : "none"}
+          stroke={color}
+          stroke-width="1"
+        />
+      </svg>
+    );
+  })}
+</div>
