@@ -1,0 +1,231 @@
+---
+import Article from "../../layouts/Article.astro";
+import AffiliateButton from "../../components/AffiliateButton.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Schema from "../../components/Schema.astro";
+import { AFFILIATE } from "../../data/affiliate.ts";
+import { articleSchema } from "../../lib/schema.ts";
+
+const title =
+  "Beauty of Joseon Aqua-Fresh vs Daily Tinted Fluid: Which One Should You Buy?";
+const description =
+  "Comparing two of Beauty of Joseon's best sunscreens: the untinted Aqua-Fresh SPF 50+ vs the new Daily Tinted Fluid SPF 40. Same brand, totally different purpose. Here's which to pick.";
+
+const articleData = articleSchema({
+  headline: title,
+  description,
+  image: "/products/boj-aqua-fresh.jpg",
+  url: "/compare/beauty-of-joseon-aqua-fresh-vs-daily-tinted/",
+  datePublished: "2026-05-01",
+  articleSection: "Comparison",
+});
+---
+
+<Article
+  title={title}
+  description={description}
+  eyebrow="Comparison"
+  published="May 2026"
+  readTime="5 min"
+  heroTitle="BoJ Aqua-Fresh vs BoJ Daily Tinted: same brand, two very different products"
+>
+  <Schema data={articleData} />
+  <Breadcrumbs
+    items={[
+      { name: "Compare", path: "/compare/" },
+      { name: "BoJ Aqua-Fresh vs Daily Tinted", path: "/compare/beauty-of-joseon-aqua-fresh-vs-daily-tinted/" },
+    ]}
+  />
+
+  <p>
+    Beauty of Joseon makes two of the most talked-about sunscreens on the
+    market — and they couldn't be more different. The <strong>Relief Sun
+    Aqua-Fresh</strong> is a bare-skin SPF 50+ with zero tint, built for
+    people who want invisible, weightless protection. The <strong>Daily
+    Tinted Fluid</strong> is BoJ's first foray into tinted SPF, offering 12
+    shades that replace your complexion step entirely.
+  </p>
+  <p>
+    Both are under $20. Both are from the same cult Korean brand. But they
+    serve completely different purposes — and picking the wrong one is a
+    common mistake.
+  </p>
+
+  <div class="my-8 grid md:grid-cols-2 gap-4 not-prose">
+    <div class="bg-cream-100 rounded-xl p-6 border border-sun-200/40">
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+        If you want the best bare-skin SPF
+      </div>
+      <div class="font-display text-xl font-bold text-ink-900 mb-2">
+        → BoJ Aqua-Fresh
+      </div>
+      <p class="text-sm text-ink-600 mb-4">
+        SPF 50+ PA++++, zero cast, watery texture. The original for a reason.
+      </p>
+      <AffiliateButton
+        href={AFFILIATE.bojAquaFresh.amazon}
+        label="Buy Aqua-Fresh ($13.50)"
+        size="sm"
+      />
+    </div>
+    <div class="bg-ink-900 rounded-xl p-6 text-cream-50">
+      <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-400 mb-2">
+        If you want SPF + a shade match
+      </div>
+      <div class="font-display text-xl font-bold mb-2">
+        → BoJ Daily Tinted Fluid
+      </div>
+      <p class="text-sm text-cream-200/80 mb-4">
+        12 shades, dewy coverage, replaces your foundation step.
+      </p>
+      <AffiliateButton
+        href={AFFILIATE.bojDailyTinted.amazon}
+        label="Buy Daily Tinted ($16)"
+        size="sm"
+        variant="secondary"
+      />
+    </div>
+  </div>
+
+  <h2>Side-by-side specs</h2>
+
+  <div class="not-prose my-6 overflow-x-auto rounded-xl border border-ink-900/8">
+    <table class="w-full text-sm min-w-[480px]">
+      <thead class="bg-cream-100">
+        <tr>
+          <th class="text-left font-display font-semibold text-ink-900 px-4 py-3"></th>
+          <th class="text-left font-display font-semibold text-ink-900 px-4 py-3">Aqua-Fresh</th>
+          <th class="text-left font-display font-semibold text-ink-900 px-4 py-3">Daily Tinted Fluid</th>
+        </tr>
+      </thead>
+      <tbody class="text-ink-700">
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Price</td><td class="px-4 py-3">$13.50 / 50ml</td><td class="px-4 py-3">$16 / 30ml</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Price per ml</td><td class="px-4 py-3 font-mono">$0.27</td><td class="px-4 py-3 font-mono">$0.53</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">SPF</td><td class="px-4 py-3">50+ PA++++</td><td class="px-4 py-3">40 (US formula)</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Filters</td><td class="px-4 py-3">Chemical (Tinosorb S+)</td><td class="px-4 py-3">Chemical (US formula)</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Tinted?</td><td class="px-4 py-3">No</td><td class="px-4 py-3">Yes — 12 shades</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Finish</td><td class="px-4 py-3">Dewy, watery, invisible</td><td class="px-4 py-3">Dewy, natural glow</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Best for</td><td class="px-4 py-3">Oily &amp; combination skin</td><td class="px-4 py-3">Dry to normal</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Under makeup</td><td class="px-4 py-3">Excellent primer base</td><td class="px-4 py-3">Replaces makeup step</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Amazon ratings</td><td class="px-4 py-3">4.8★ · 6,503 reviews</td><td class="px-4 py-3">4.0★ · 1,796 reviews</td></tr>
+        <tr class="border-t border-ink-900/5"><td class="px-4 py-3 font-medium text-ink-500">Fragrance</td><td class="px-4 py-3">None</td><td class="px-4 py-3">None</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Round 1: Sun protection</h2>
+  <p>
+    <strong>Winner: Aqua-Fresh.</strong>
+  </p>
+  <p>
+    This one isn't close. Aqua-Fresh is SPF 50+ with PA++++ — the highest UVA
+    rating in the Asian system, and it uses Tinosorb S and Uvinul A Plus, next-generation
+    photostable filters. The Daily Tinted Fluid is SPF 40 in the US version
+    (the Korean import version differs), with a simpler filter stack. If protection
+    is your primary goal, Aqua-Fresh wins on every metric.
+  </p>
+
+  <h2>Round 2: Shade range</h2>
+  <p>
+    <strong>Winner: Daily Tinted Fluid, by a mile.</strong>
+  </p>
+  <p>
+    Aqua-Fresh has no shade range — it's completely untinted. The Daily Tinted
+    Fluid offers 12 shades including true cool and neutral options that are
+    genuinely rare in K-beauty SPF. If you want your sunscreen to even out
+    your skin tone, there's only one answer here.
+  </p>
+
+  <h2>Round 3: Finish and feel</h2>
+  <p>
+    <strong>Winner: Aqua-Fresh for oily skin; Daily Tinted for dry skin.</strong>
+  </p>
+  <p>
+    Both give you a dewy, luminous finish — but Aqua-Fresh's watery texture is
+    significantly lighter. On oily or combination skin, that weightlessness is
+    the advantage. The Daily Tinted Fluid has more body (it's carrying 12 shades
+    of pigment), which makes it sit better on drier skin types. In hot, humid weather,
+    the Daily Tinted can feel heavy on combination-to-oily skin by early afternoon.
+  </p>
+
+  <h2>Round 4: Value for money</h2>
+  <p>
+    <strong>Winner: Aqua-Fresh.</strong>
+  </p>
+  <p>
+    Aqua-Fresh costs <strong>$0.27 per ml</strong>. The Daily Tinted Fluid is
+    <strong>$0.53 per ml</strong> — nearly twice the price for half the volume.
+    And Aqua-Fresh delivers a higher SPF in the deal. The Daily Tinted justifies
+    its premium through pigment and shade range — but on pure sun-protection
+    economics, Aqua-Fresh is the better buy.
+  </p>
+
+  <h2>Round 5: Under makeup</h2>
+  <p>
+    <strong>Winner: Depends on your goal.</strong>
+  </p>
+  <p>
+    Aqua-Fresh is our go-to primer base — it doesn't pill, creates a slightly
+    tacky surface foundation grips to, and the dewy finish makes skin look
+    plump and prepped. On a full-makeup day, use Aqua-Fresh.
+  </p>
+  <p>
+    The Daily Tinted Fluid is designed to replace your complexion step on
+    no-makeup or low-effort days. On those days — it works beautifully. But
+    if you want to layer foundation on top, the lighter Aqua-Fresh is the
+    better base.
+  </p>
+
+  <h2>Who should buy which</h2>
+
+  <ul>
+    <li>
+      <strong>Buy Aqua-Fresh if:</strong> You already have a foundation or tinted
+      moisturiser you love, you want the best possible SPF under $20, or your
+      skin runs oily.
+    </li>
+    <li>
+      <strong>Buy Daily Tinted if:</strong> You want one product that provides
+      SPF + coverage, you've struggled to find a K-beauty tint in your shade,
+      or you prefer dry skin and a natural glow finish.
+    </li>
+    <li>
+      <strong>Buy both if:</strong> You're a serious skincare person. Use
+      Aqua-Fresh as your daily SPF under makeup and reach for the Daily Tinted
+      on easy, no-makeup days.
+    </li>
+  </ul>
+
+  <div class="not-prose my-8 p-5 bg-cream-100 rounded-xl border border-sun-200/40">
+    <div class="text-[10px] font-semibold uppercase tracking-wider text-sun-700 mb-2">
+      The Bottom Line
+    </div>
+    <p class="text-ink-700 leading-relaxed m-0">
+      If you can only pick one: <strong>Aqua-Fresh</strong>. Better SPF, lighter texture,
+      half the cost per ml. Add the Daily Tinted once you've found your shade.
+    </p>
+  </div>
+
+  <div class="my-10 not-prose grid md:grid-cols-2 gap-3">
+    <AffiliateButton
+      href={AFFILIATE.bojAquaFresh.amazon}
+      label="Buy BoJ Aqua-Fresh ($13.50)"
+    />
+    <AffiliateButton
+      href={AFFILIATE.bojDailyTinted.amazon}
+      label="Buy BoJ Daily Tinted ($16)"
+      variant="secondary"
+    />
+  </div>
+
+  <NewsletterSignup variant="compact" />
+
+  <h2>Related reading</h2>
+  <ul>
+    <li><a href="/reviews/beauty-of-joseon-relief-sun-aqua-fresh/">Full BoJ Aqua-Fresh review</a></li>
+    <li><a href="/reviews/beauty-of-joseon-daily-tinted-fluid/">Full BoJ Daily Tinted Fluid review</a></li>
+    <li><a href="/compare/boj-aqua-fresh-vs-merit-uniform/">BoJ Aqua-Fresh vs Merit The Uniform</a></li>
+    <li><a href="/">All 9 tinted sunscreens ranked for 2026</a></li>
+  </ul>
+</Article>

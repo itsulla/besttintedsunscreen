@@ -295,7 +295,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviews: "20,894",
     color: "#C8A882",
-    image: "/products/eltamd-uv-clear-tinted.png",
+    image: "/products/eltamd-uv-clear-tinted.jpg",
     affiliateKey: "eltaMDClear",
     quotePositive: {
       text: "This is the BEST sunscreen I have ever used. I have rosacea and cystic acne prone skin. This sunscreen doesn't make either of them flare up. It's lightweight and goes on very nicely. My skin is so uneven from sun damage, acne and rosacea and this sunscreen evens all that out. My skin has never looked better using this product.",
