@@ -207,6 +207,146 @@ export const PRODUCTS: Product[] = [
       stars: 1,
     },
   },
+  {
+    rank: 6,
+    slug: "beauty-of-joseon-daily-tinted-fluid",
+    brand: "Beauty of Joseon",
+    name: "Daily Tinted Fluid Sunscreen",
+    tagline: "The Shade Upgrade",
+    price: "$16",
+    spf: "SPF 40 (US formula)",
+    finish: "Dewy, natural glow",
+    best: "Dry to normal, 12 shades",
+    origin: "Korea",
+    notes:
+      "Beauty of Joseon's first-ever mineral-tinted formula. 12 shades with true neutral and cool options — the rare K-beauty SPF that actually works on cool-toned skin.",
+    pros: ["12 shades including cool neutrals", "BOJ brand trust + quality", "Under $20"],
+    cons: ["US formula uses chemical filters (differs from Korean version)", "Dewy — oily skin will shine"],
+    rating: 4.0,
+    reviews: "1,796",
+    color: "#E8D5B9",
+    image: "/products/boj-daily-tinted.jpg",
+    affiliateKey: "bojDailyTinted",
+    quotePositive: {
+      text: "I am something of a sunscreen connoisseur and have tried many tinted sunscreens, from luxury brands to drugstore brands to k-beauty and c-beauty. When you apply most of these tinted sunscreens in the proper amount, they look streaky, don't ever really dry, or look like a mask.",
+      reviewer: "ItsJess",
+      context: "Color #LP110, Verified Purchase",
+      source: "Amazon",
+      stars: 5,
+    },
+    quoteCritical: {
+      text: "I REALLY wanted to love this. I got 2 shades to try out and I found that mixed together, they were a good shade match. The coverage is not bad for a tinted sunscreen. Not a huge fan of how it applies — it feels really greasy and felt awful on my skin in 90 degree NYC humid weather.",
+      reviewer: "youarecosmic",
+      context: "Color #LP110, Verified Purchase",
+      source: "Amazon",
+      stars: 2,
+    },
+  },
+  {
+    rank: 7,
+    slug: "ilia-super-serum-skin-tint",
+    brand: "ILIA",
+    name: "Super Serum Skin Tint SPF 40",
+    tagline: "The Cult Classic",
+    price: "$48",
+    spf: "SPF 40",
+    finish: "Dewy, glass-skin",
+    best: "All skin types, 30 shades",
+    origin: "USA",
+    notes:
+      "The product that arguably started the skin-tint category. 30 shades, 100% mineral zinc oxide, hyaluronic acid, niacinamide, squalane — and 15,000+ verified reviews to prove it.",
+    pros: ["30 inclusive shades", "100% mineral zinc oxide", "Fragrance-free + non-comedogenic"],
+    cons: ["Dewy — not transfer-proof", "Can pill over silicone-based skincare", "Dropper can be inconsistent"],
+    rating: 4.5,
+    reviews: "15,242",
+    color: "#D4B896",
+    image: "/products/ilia-super-serum.jpg",
+    affiliateKey: "iliaSerumTint",
+    quotePositive: {
+      text: "Let me preface by saying this review is unincentivized. I am on my eighth bottle, and do not ever intend on stopping. I found about the Serum Skin Tint a few years ago, and was absolutely blown away by the effects. At that time, I'd tried and failed to find a mineral sunscreen that was non-comedogenic, nourishing, fragrance-free, and didn't make me look as if I rolled about in dry clay.",
+      reviewer: "Rubi",
+      context: "combination skin, age 25–34, Verified Buyer",
+      source: "ILIA Beauty",
+      stars: 5,
+    },
+    quoteCritical: {
+      text: "I've been using this foundation for a long time and overall love it, but my most recent order the foundation is hard to get out with the dropper and it comes out clumpy. I've tried shaking it and nothing works. This has never happened and not sure if they gave me an old one.",
+      reviewer: "Holly B.",
+      context: "dry skin, Verified Buyer",
+      source: "ILIA Beauty",
+      stars: 3,
+    },
+  },
+  {
+    rank: 8,
+    slug: "eltamd-uv-clear-tinted-spf-46",
+    brand: "EltaMD",
+    name: "UV Clear Tinted SPF 46",
+    tagline: "Derm's #1 Pick",
+    price: "$47",
+    spf: "SPF 46",
+    finish: "Matte, invisible",
+    best: "Acne-prone, rosacea, sensitive",
+    origin: "USA",
+    notes:
+      "The sunscreen dermatologists actually recommend. 5% niacinamide, oil-free, fragrance-free — clinically designed for acne and rosacea skin. One universal warm tint with 20,000+ ratings.",
+    pros: ["#1 derm-recommended brand in the US", "5% niacinamide for acne + rosacea", "Over 20,000 verified ratings"],
+    cons: ["One shade only (warm/golden — not for very fair or cool-toned skin)", "Hybrid formula (zinc oxide + octinoxate)"],
+    rating: 4.6,
+    reviews: "20,894",
+    color: "#C8A882",
+    image: "/products/eltamd-uv-clear-tinted.png",
+    affiliateKey: "eltaMDClear",
+    quotePositive: {
+      text: "This is the BEST sunscreen I have ever used. I have rosacea and cystic acne prone skin. This sunscreen doesn't make either of them flare up. It's lightweight and goes on very nicely. My skin is so uneven from sun damage, acne and rosacea and this sunscreen evens all that out. My skin has never looked better using this product.",
+      reviewer: "Danielle",
+      context: "rosacea + acne-prone skin, Verified Purchase",
+      source: "Amazon",
+      stars: 5,
+    },
+    quoteCritical: {
+      text: "It is a good sunscreen but I ordered a tinted one, it gives yellowish skin tone. It will fit someone who already has a tan, not me with my pale skin.",
+      reviewer: "Liza Sukhanova",
+      context: "pale/fair skin, Verified Purchase",
+      source: "Amazon",
+      stars: 4,
+    },
+  },
+  {
+    rank: 9,
+    slug: "la-roche-posay-anthelios-mineral-tinted",
+    brand: "La Roche-Posay",
+    name: "Anthelios Mineral Tinted SPF 50",
+    tagline: "The Pharmacy Staple",
+    price: "$39.99",
+    spf: "SPF 50",
+    finish: "Matte, soft",
+    best: "All skin types, 4 shades",
+    origin: "France",
+    notes:
+      "31,000 Amazon ratings and counting. The French pharmacy formula trusted by dermatologists worldwide — pure titanium dioxide mineral, water-resistant 40 min, zero white cast.",
+    pros: ["31,000+ Amazon ratings", "100% mineral (titanium dioxide)", "Water-resistant 40 min, Skin Cancer Foundation seal"],
+    cons: ["Only 4 shades", "Can feel slightly heavy in intense heat"],
+    rating: 4.5,
+    reviews: "31,035",
+    color: "#C8B5A0",
+    image: "/products/lrp-anthelios-tinted.jpg",
+    affiliateKey: "lrpAnthelios",
+    quotePositive: {
+      text: "The tinted Anthelios is my go to sunscreen for summer. It is light, easy to apply, and dries quickly to a soft matte finish. There is no white cast, no discernible sunscreen odor. It softens facial imperfections without the weigh down of makeup. It just leaves a natural fresh look. My skin but better.",
+      reviewer: "JMCDN",
+      context: "Verified Purchase, March 2026",
+      source: "Amazon",
+      stars: 5,
+    },
+    quoteCritical: {
+      text: "It is a fine sunscreen. But the question is does it worth that amount of money? The answer is NO. I won't buy it again unless it comes down to a lower price. It does not do anything special. It only glides nicely on skin and is light. Nothing else.",
+      reviewer: "MM",
+      context: "Verified Purchase",
+      source: "Amazon",
+      stars: 3,
+    },
+  },
 ];
 
 export const QUIZ_QUESTIONS = [
@@ -246,9 +386,52 @@ export const QUIZ_QUESTIONS = [
   },
 ];
 
+// Slugs for easy lookup
+const bySlug = (slug: string) => PRODUCTS.find((p) => p.slug === slug)!;
+
 export function quizResult(answers: Record<string, string>): Product {
-  if (answers.skin === "sensitive") return PRODUCTS[2];
-  if (answers.finish === "blur")    return PRODUCTS[3];
-  if (answers.filters === "mineral") return PRODUCTS[1];
-  return PRODUCTS[0];
+  const { skin, finish, filters, budget } = answers;
+
+  // Acne / rosacea → EltaMD is the clinical pick
+  if (skin === "sensitive" && filters === "mineral" && budget === "high")
+    return bySlug("eltamd-uv-clear-tinted-spf-46");
+
+  // Sensitive skin → SKIN1004 centella
+  if (skin === "sensitive")
+    return bySlug("skin1004-centella-hyalu-cica-water-fit");
+
+  // Soft-blur / tone-up finish → Numbuzin
+  if (finish === "blur")
+    return bySlug("numbuzin-no3-porcelain-base-skip-tone-up");
+
+  // Mineral-only filters
+  if (filters === "mineral") {
+    // Budget under $20 → BOJ Daily Tinted (12 shades, mineral)
+    if (budget === "low")
+      return bySlug("beauty-of-joseon-daily-tinted-fluid");
+    // Wide shade range → Ilia (30 shades, $48)
+    if (budget === "high")
+      return bySlug("ilia-super-serum-skin-tint");
+    // Mid-range → La Roche-Posay (4 shades, pharmacy trust, SPF 50)
+    return bySlug("la-roche-posay-anthelios-mineral-tinted");
+  }
+
+  // Matte finish → EltaMD (derm matte)
+  if (finish === "matte")
+    return bySlug("eltamd-uv-clear-tinted-spf-46");
+
+  // Minimalist / multitasker → Live Tinted
+  if (finish === "dewy" && budget === "high")
+    return bySlug("live-tinted-hueguard-3-in-1-mineral");
+
+  // Budget under $20 → BOJ Aqua-Fresh (oily/combo default)
+  if (budget === "low")
+    return bySlug("beauty-of-joseon-relief-sun-aqua-fresh");
+
+  // Mid-budget with mineral preference → MERIT
+  if (budget === "mid" || budget === "high")
+    return bySlug("merit-the-uniform-tinted-mineral");
+
+  // Default → BOJ Aqua-Fresh
+  return bySlug("beauty-of-joseon-relief-sun-aqua-fresh");
 }

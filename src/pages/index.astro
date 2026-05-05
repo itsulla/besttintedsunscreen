@@ -11,9 +11,9 @@ import { PRODUCTS } from "../data/products.ts";
 import { NEWSLETTER } from "../data/newsletter.ts";
 import { itemListSchema, faqSchema } from "../lib/schema.ts";
 
-const title = "Best Korean Tinted Sunscreens 2026 — Tested & Ranked";
+const title = "Best Tinted Sunscreens 2026 — 9 Picks Tested & Ranked";
 const description =
-  "The 5 best tinted sunscreens tested on real skin in 2026. Beauty of Joseon, Merit, Skin1004, Numbuzin, Live Tinted — no white cast, ranked for every skin type.";
+  "9 best tinted sunscreens tested on real skin in 2026. Beauty of Joseon, ILIA, EltaMD, La Roche-Posay, MERIT, Numbuzin, Live Tinted — no white cast, ranked for every skin type.";
 
 const faqItems = [
   {
@@ -34,7 +34,7 @@ const faqItems = [
   },
   {
     q: "Are these available in Australia / UK / Canada?",
-    a: "Yes — all five products ship internationally through Amazon, iHerb, StyleKorean and YesStyle. We've put together regional buying guides: <a href='/guides/best-korean-sunscreen-australia/'>Australia edition →</a>",
+    a: "Yes — all nine products ship internationally through Amazon, iHerb, StyleKorean and YesStyle. We've put together regional buying guides: <a href='/guides/best-korean-sunscreen-australia/'>Australia edition →</a>",
   },
   {
     q: "How much sunscreen should I actually apply?",
@@ -43,7 +43,7 @@ const faqItems = [
 ];
 
 const itemListData = itemListSchema(
-  "The 5 Best Tinted Sunscreens 2026",
+  "The 9 Best Tinted Sunscreens 2026",
   PRODUCTS.map((p) => ({
     name: `${p.brand} ${p.name}`,
     brand: p.brand,
@@ -173,7 +173,7 @@ const isConfigured = NEWSLETTER.actionUrl?.length > 0;
             The 2026 Ranking
           </p>
           <h2 class="font-dmserif font-normal" style="font-size:clamp(40px,6vw,72px)">
-            The <span class="italic" style="color:#D89680">five</span> we wear.
+            The <span class="italic" style="color:#D89680">nine</span> we wear.
           </h2>
         </div>
 
@@ -188,7 +188,7 @@ const isConfigured = NEWSLETTER.actionUrl?.length > 0;
               >
                 <!-- Rank -->
                 <div class="col-span-2 md:col-span-1 font-dmserif font-normal text-5xl md:text-6xl leading-none" style="color:#D4A15E">
-                  0{p.rank}
+                  {p.rank < 10 ? `0${p.rank}` : p.rank}
                 </div>
 
                 <!-- Product image -->

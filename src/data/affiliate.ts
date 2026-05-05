@@ -71,6 +71,25 @@ export const AFFILIATE = {
     // Verified: "Live Tinted Hueguard 3-in-1 Mineral Sunscreen, Moisturizer, Primer"
     amazon: dp("B0BG432CRD"),
   },
+  bojDailyTinted: {
+    // Verified: "Beauty of Joseon Daily Tinted Fluid Sunscreen 12 Shades SPF 40" (US formula)
+    amazon: dp("B0DP5ZPRXC"),
+    stylekorean:
+      "https://www.stylekorean.com/shop/goods/goods_search.php?keyword=beauty+of+joseon+daily+tinted+fluid&ref=REPLACE",
+  },
+  iliaSerumTint: {
+    // Ilia Super Serum Skin Tint SPF 40 — sold via Sephora + brand site + Amazon
+    amazon: search("ilia super serum skin tint spf 40"),
+    sephora: "https://www.sephora.com/product/ilia-super-serum-skin-tint-spf-40-P508913",
+  },
+  eltaMDClear: {
+    // Verified: "EltaMD UV Clear Broad-Spectrum SPF 46 Tinted Face Sunscreen"
+    amazon: dp("B00ZPWR0N8"),
+  },
+  lrpAnthelios: {
+    // Verified: "La Roche-Posay Anthelios Mineral Tinted Ultra-Light Fluid SPF 50"
+    amazon: dp("B007U54P36"),
+  },
   ceraveMineral: {
     // Verified: "CeraVe 100% Mineral Sunscreen SPF 50, Face sunscreen with Zinc Oxide & Titanium Dioxide"
     amazon: dp("B07KLY4RYG"),
