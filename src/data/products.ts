@@ -190,7 +190,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.2,
     reviews: "505",
     color: "#C99775",
-    image: "/products/live-tinted-hueguard.jpg",
+    image: "/products/live-tinted.jpg",
     affiliateKey: "liveTinted",
     quotePositive: {
       text: "The absolute best! I was a huge fan of Elta MD UV clear (tinted and original formulas). This has about as much tint as the Elta tinted. It's perfectly light, hydrating, non-greasy, and skin beautifying. No white cast, it feels like a moisturizer, plays nicely with other products, and the light scent is dreamy.",

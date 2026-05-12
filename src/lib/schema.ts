@@ -16,13 +16,15 @@ const abs = (path: string) =>
 // per page render.
 // ──────────────────────────────────────────────────────────
 
+// Cast to string so TypeScript doesn't narrow literal "" to never inside the guards
+const _twitter   = SITE.social.twitter   as string;
+const _instagram = SITE.social.instagram as string;
+const _pinterest = SITE.social.pinterest as string;
+
 const orgSameAs: string[] = [];
-if (SITE.social.twitter)
-  orgSameAs.push(`https://twitter.com/${SITE.social.twitter.replace("@", "")}`);
-if (SITE.social.instagram)
-  orgSameAs.push(`https://instagram.com/${SITE.social.instagram}`);
-if (SITE.social.pinterest)
-  orgSameAs.push(`https://pinterest.com/${SITE.social.pinterest}`);
+if (_twitter)   orgSameAs.push(`https://twitter.com/${_twitter.replace("@", "")}`);
+if (_instagram) orgSameAs.push(`https://instagram.com/${_instagram}`);
+if (_pinterest) orgSameAs.push(`https://pinterest.com/${_pinterest}`);
 
 export const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
