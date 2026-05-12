@@ -2,6 +2,7 @@
  * Affiliate links for Best Tinted Sunscreen.
  *
  * Amazon Associates tag: lekkerandco-20  (amazon.com / US)
+ * Stylevana AWIN:        awinmid=90791, awinaffid=2880825
  * StyleKorean referral:  still needs to be set (ref=REPLACE placeholders below)
  * YesStyle referral:     still needs to be set
  *
@@ -12,6 +13,9 @@
  *
  * ASINs were last verified: April 2026. Re-run `node scripts/verify-asins.mjs`
  * if listings change.
+ *
+ * Stylevana product URLs verified: May 2026 via playwright-cli.
+ * Stylevana stocks: BoJ Aqua-Fresh, SKIN1004 Centella only (of our 9).
  */
 
 const TAG = "lekkerandco-20";
@@ -19,11 +23,20 @@ const dp = (asin: string) => `https://www.amazon.com/dp/${asin}/?tag=${TAG}`;
 const search = (query: string) =>
   `https://www.amazon.com/s?k=${query.replace(/\s+/g, "+")}&tag=${TAG}`;
 
+// Stylevana AWIN deep-link builder
+const AWIN_MID = "90791";
+const AWIN_AFF = "2880825";
+const stylevana = (productUrl: string) =>
+  `https://www.awin1.com/cread.php?awinmid=${AWIN_MID}&awinaffid=${AWIN_AFF}&ued=${encodeURIComponent(productUrl)}`;
+
 export const AFFILIATE = {
   bojAquaFresh: {
     // Not yet listed on Amazon US. Search URL sends users to BoJ's Rice
     // Probiotics + any future Aqua-Fresh stock; 24h cookie still earns.
     amazon: search("beauty of joseon relief sun aqua fresh"),
+    stylevana: stylevana(
+      "https://www.stylevana.com/en_US/beauty-of-joseon-relief-sun-aqua-fresh-rice-b5-spf50-pa-50ml27125.html"
+    ),
     stylekorean:
       "https://www.stylekorean.com/shop/goods/goods_search.php?keyword=beauty+of+joseon+aqua+fresh&ref=REPLACE",
     yesstyle:
@@ -51,6 +64,9 @@ export const AFFILIATE = {
   skin1004Centella: {
     // Verified: "SKIN1004 Centella Hyalu-Cica Water-Fit Sun Serum UV, Korean Sunscreen SPF 50"
     amazon: dp("B0FXH5LHN8"),
+    stylevana: stylevana(
+      "https://www.stylevana.com/en_US/skin1004-madagascar-centella-hyalu-cica-water-fit-sun-serum-spf50-pa-50ml28868.html"
+    ),
     stylekorean:
       "https://www.stylekorean.com/shop/goods/goods_search.php?keyword=skin1004+centella+sun+serum&ref=REPLACE",
   },
